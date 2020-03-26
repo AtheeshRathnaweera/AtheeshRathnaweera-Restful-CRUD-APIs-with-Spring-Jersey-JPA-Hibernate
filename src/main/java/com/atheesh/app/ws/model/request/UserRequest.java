@@ -2,8 +2,6 @@ package com.atheesh.app.ws.model.request;
 
 import com.atheesh.app.ws.shared.enums.UserStatus;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 public class UserRequest {
 

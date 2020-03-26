@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface UserService{
 
-    UserDTO getUserById(int id);
+    UserDTO getUserById(Integer id);
     List<UserDTO> getAllUsers();
     UserDTO save(UserDTO userDTO);
-    UserDTO update(int id, UserDTO userDTO);
-    boolean delete(int id);
+    UserDTO update(Integer id, UserDTO userDTO);
+    boolean delete(Integer id);
     String test();
 
 

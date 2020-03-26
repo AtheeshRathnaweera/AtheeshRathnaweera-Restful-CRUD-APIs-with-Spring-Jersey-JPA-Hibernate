@@ -1,20 +1,16 @@
-package com.atheesh.app.ws.model.response;
+package com.atheesh.app.ws.shared.dto;
 
 import com.atheesh.app.ws.shared.enums.Status;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
-
-@XmlRootElement
-public class ItemResponse {
+public class CompanyDTO {
 
     private Integer id;
     private String name;
-    private Date createdDate;
-    private Date updatedDate;
+    private String websiteUrl;
+    private String phoneNumber;
     private Status status;
 
-    public ItemResponse() {
+    public CompanyDTO() {
     }
 
     public Integer getId() {
@@ -33,20 +29,20 @@ public class ItemResponse {
         this.name = name;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public String getWebsiteUrl() {
+        return websiteUrl;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Status getStatus() {
@@ -59,11 +55,11 @@ public class ItemResponse {
 
     @Override
     public String toString() {
-        return "ItemResponse{" +
+        return "CompanyDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", createdDate=" + createdDate +
-                ", updatedDate=" + updatedDate +
+                ", websiteUrl='" + websiteUrl + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", status=" + status +
                 '}';
     }

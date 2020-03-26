@@ -1,11 +1,8 @@
 package com.atheesh.app.ws.entrypoints;
 
 
-import com.atheesh.app.ws.factory.RoleFactory;
 import com.atheesh.app.ws.model.request.RoleRequest;
-import com.atheesh.app.ws.model.request.UserRequest;
 import com.atheesh.app.ws.model.response.RoleResponse;
-import com.atheesh.app.ws.model.response.UserResponse;
 import com.atheesh.app.ws.service.RoleService;
 import com.atheesh.app.ws.shared.dto.RoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +25,14 @@ public class RolesEntryPoint {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )
+    public List<RoleResponse> getAllActiveRoles() {
+        List<RoleResponse> roleResponseList = new ArrayList<>();
+        return roleResponseList;
+    }
+
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON} )
+    @Path("/all")
     public List<RoleResponse> getAllRoles() {
         List<RoleDTO> roleDTOList = roleService.getAllRoles();
         List<RoleResponse> roleResponseList = new ArrayList<>();

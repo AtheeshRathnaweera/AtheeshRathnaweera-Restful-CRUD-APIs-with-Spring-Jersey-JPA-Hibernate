@@ -1,10 +1,11 @@
 package com.atheesh.app.ws.model.request;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import com.atheesh.app.ws.shared.enums.Status;
 
-@XmlRootElement
 public class RoleRequest {
+
     private String name;
+    private Status status;
 
     public RoleRequest() {
     }
@@ -17,10 +18,19 @@ public class RoleRequest {
         this.name = name;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "RoleRequest{" +
                 "name='" + name + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

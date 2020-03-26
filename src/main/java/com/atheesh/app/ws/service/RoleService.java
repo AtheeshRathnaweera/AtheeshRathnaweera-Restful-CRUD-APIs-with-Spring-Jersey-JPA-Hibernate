@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface RoleService {
 
-    RoleDTO getRoleById(int id);
+    RoleDTO getRoleById(Integer id);
     List<RoleDTO> getAllRoles();
     RoleDTO save(RoleDTO roleDTO);
-    boolean update(int id, RoleDTO roleDTO);
-    boolean delete(int id);
+    boolean update(Integer id, RoleDTO roleDTO);
+    boolean delete(Integer id);
 }

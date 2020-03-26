@@ -1,5 +1,7 @@
 package com.atheesh.app.ws.entities;
 
+import com.atheesh.app.ws.shared.enums.Status;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -14,11 +16,15 @@ public class RoleEntity {
     @NotNull
     private String name;
 
+    @NotNull
+    private Status status;
+
     public RoleEntity() {
     }
 
-    public RoleEntity(@NotNull String name) {
+    public RoleEntity(@NotNull String name, @NotNull Status status) {
         this.name = name;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -37,11 +43,20 @@ public class RoleEntity {
         this.name = name;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "RoleEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

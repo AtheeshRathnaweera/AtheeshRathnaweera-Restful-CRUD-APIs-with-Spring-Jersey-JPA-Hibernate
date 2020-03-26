@@ -13,6 +13,13 @@ public class ItemsEntryPoint {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    public String getAllActiveItems() {
+        return "All active items will be received.";
+    }
+
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Path("/all")
     public String getAllItems() {
         return "All items will be received.";
     }

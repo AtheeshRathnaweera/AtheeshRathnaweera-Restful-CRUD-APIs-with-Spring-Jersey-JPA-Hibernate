@@ -20,19 +20,6 @@ public class UserDTO implements Serializable{
     public UserDTO() {
     }
 
-    public UserDTO(Integer id, String firstName, String lastName, String email, String phoneNumber, String nic, RoleDTO role, Date createdDate, UserStatus status) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.nic = nic;
-        this.role = role;
-        this.createdDate = createdDate;
-        this.status = status;
-    }
-
-
     public Integer getId() {
         return id;
     }

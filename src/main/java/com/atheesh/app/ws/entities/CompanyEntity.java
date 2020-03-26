@@ -4,43 +4,42 @@ import com.atheesh.app.ws.shared.enums.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Entity
-@Table(name="items")
-public class ItemEntity {
+@Table(name="company")
+public class CompanyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     private String name;
 
     @NotNull
-    private Date createdDate;
+    private String websiteUrl;
 
     @NotNull
-    private Date updatedDate;
+    private String phoneNumber;
 
     @NotNull
     private Status status;
 
-    public ItemEntity() {
+    public CompanyEntity() {
     }
 
-    public ItemEntity(@NotNull String name, @NotNull Date createdDate, @NotNull Date updatedDate, @NotNull Status status) {
+    public CompanyEntity(@NotNull String name, @NotNull String websiteUrl, @NotNull String phoneNumber, @NotNull Status status) {
         this.name = name;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
+        this.websiteUrl = websiteUrl;
+        this.phoneNumber = phoneNumber;
         this.status = status;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,20 +51,20 @@ public class ItemEntity {
         this.name = name;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public String getWebsiteUrl() {
+        return websiteUrl;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Status getStatus() {
@@ -78,11 +77,11 @@ public class ItemEntity {
 
     @Override
     public String toString() {
-        return "ItemEntity{" +
+        return "CompanyEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", createdDate=" + createdDate +
-                ", updatedDate=" + updatedDate +
+                ", websiteUrl='" + websiteUrl + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", status=" + status +
                 '}';
     }

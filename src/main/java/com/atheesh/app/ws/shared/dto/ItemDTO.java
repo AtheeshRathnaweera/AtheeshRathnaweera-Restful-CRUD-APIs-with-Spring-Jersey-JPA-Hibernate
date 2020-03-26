@@ -1,30 +1,26 @@
 package com.atheesh.app.ws.shared.dto;
 
+import com.atheesh.app.ws.shared.enums.Status;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class ItemDTO implements Serializable {
 
-    private int id;
+    private Integer id;
     private String name;
     private Date createdDate;
     private Date updatedDate;
+    private Status status;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(int id, String name, Date createdDate, Date updatedDate) {
-        this.id = id;
-        this.name = name;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,6 +48,14 @@ public class ItemDTO implements Serializable {
         this.updatedDate = updatedDate;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "ItemDTO{" +
@@ -59,6 +63,7 @@ public class ItemDTO implements Serializable {
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
+                ", status=" + status +
                 '}';
     }
 }
