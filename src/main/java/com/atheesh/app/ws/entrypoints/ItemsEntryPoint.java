@@ -1,29 +1,46 @@
 package com.atheesh.app.ws.entrypoints;
 
-import com.atheesh.app.ws.model.request.SaveUserRequest;
-import org.springframework.beans.BeanUtils;
+import com.atheesh.app.ws.model.request.UserRequest;
+import com.atheesh.app.ws.model.response.UserResponse;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 @Component
 @Path("items")
 public class ItemsEntryPoint {
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
     public String getAllItems() {
         return "All items will be received.";
     }
 
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
-    public String save(SaveUserRequest saveUserRequest) {
+    @Consumes({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    public String save(UserRequest userRequest) {
         return "item will be saved";
     }
+
+    @PUT
+    @Consumes({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Path("/{id}")
+    public UserResponse update(@PathParam("id") String id, UserResponse createUserModel) {
+        return new UserResponse();
+    }
+
+    @DELETE
+    @Consumes({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Path("/{id}")
+    public String delete(UserRequest userRequest) {
+        return "item will be deleted";
+    }
+
+
+
+
 }

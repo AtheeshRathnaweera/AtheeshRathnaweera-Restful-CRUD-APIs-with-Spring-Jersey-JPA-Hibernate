@@ -1,66 +1,30 @@
-package com.atheesh.app.ws.entities;
+package com.atheesh.app.ws.model.response;
 
 import com.atheesh.app.ws.shared.enums.UserStatus;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
-@Entity
-@Table(name = "users")
-public class UserEntity {
+public class UserResponse {
 
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @NotNull
+    private int id;
     private String firstName;
-
-    @NotNull
     private String lastName;
-
-    @NotNull
     private String email;
-
-    @NotNull
     private String phoneNumber;
-
-    @NotNull
     private String nic;
-
-    @NotNull
-    @JoinColumn(name="role_id",nullable=false,referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private RoleEntity role;
-
-    @NotNull
+    private RoleResponse role;
     private Date createdDate;
-
-    @NotNull
     private UserStatus status;
 
-    public UserEntity() {
+    public UserResponse() {
     }
 
-    public UserEntity(@NotNull String firstName, @NotNull String lastName, @NotNull String email, @NotNull String phoneNumber, @NotNull String nic, @NotNull RoleEntity role, @NotNull Date createdDate, @NotNull UserStatus status) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.nic = nic;
-        this.role = role;
-        this.createdDate = createdDate;
-        this.status = status;
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -104,11 +68,11 @@ public class UserEntity {
         this.nic = nic;
     }
 
-    public RoleEntity getRole() {
+    public RoleResponse getRole() {
         return role;
     }
 
-    public void setRole(RoleEntity role) {
+    public void setRole(RoleResponse role) {
         this.role = role;
     }
 
@@ -130,7 +94,7 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "UserResponse{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

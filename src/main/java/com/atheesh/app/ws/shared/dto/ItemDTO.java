@@ -1,39 +1,23 @@
-package com.atheesh.app.ws.entities;
+package com.atheesh.app.ws.shared.dto;
 
-import com.atheesh.app.ws.shared.enums.ItemStatus;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name="items")
-public class ItemEntity {
+public class ItemDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @NotNull
     private String name;
-
-    @NotNull
     private Date createdDate;
-
-    @NotNull
     private Date updatedDate;
 
-    @NotNull
-    private ItemStatus status;
-
-    public ItemEntity() {
+    public ItemDTO() {
     }
 
-    public ItemEntity(@NotNull String name, @NotNull Date createdDate, @NotNull Date updatedDate, @NotNull ItemStatus status) {
+    public ItemDTO(int id, String name, Date createdDate, Date updatedDate) {
+        this.id = id;
         this.name = name;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
-        this.status = status;
     }
 
     public int getId() {
@@ -68,22 +52,13 @@ public class ItemEntity {
         this.updatedDate = updatedDate;
     }
 
-    public ItemStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(ItemStatus status) {
-        this.status = status;
-    }
-
     @Override
     public String toString() {
-        return "ItemEntity{" +
+        return "ItemDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
-                ", status=" + status +
                 '}';
     }
 }

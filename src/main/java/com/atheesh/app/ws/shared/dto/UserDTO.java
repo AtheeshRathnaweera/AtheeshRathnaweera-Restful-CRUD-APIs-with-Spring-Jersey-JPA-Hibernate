@@ -1,51 +1,27 @@
-package com.atheesh.app.ws.entities;
+package com.atheesh.app.ws.shared.dto;
 
 import com.atheesh.app.ws.shared.enums.UserStatus;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
+public class UserDTO implements Serializable{
 
-@Entity
-@Table(name = "users")
-public class UserEntity {
-
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @NotNull
     private String firstName;
-
-    @NotNull
     private String lastName;
-
-    @NotNull
     private String email;
-
-    @NotNull
     private String phoneNumber;
-
-    @NotNull
     private String nic;
-
-    @NotNull
-    @JoinColumn(name="role_id",nullable=false,referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private RoleEntity role;
-
-    @NotNull
+    private RoleDTO role;
     private Date createdDate;
-
-    @NotNull
     private UserStatus status;
 
-    public UserEntity() {
+    public UserDTO() {
     }
 
-    public UserEntity(@NotNull String firstName, @NotNull String lastName, @NotNull String email, @NotNull String phoneNumber, @NotNull String nic, @NotNull RoleEntity role, @NotNull Date createdDate, @NotNull UserStatus status) {
+    public UserDTO(Integer id, String firstName, String lastName, String email, String phoneNumber, String nic, RoleDTO role, Date createdDate, UserStatus status) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -55,6 +31,7 @@ public class UserEntity {
         this.createdDate = createdDate;
         this.status = status;
     }
+
 
     public Integer getId() {
         return id;
@@ -104,11 +81,11 @@ public class UserEntity {
         this.nic = nic;
     }
 
-    public RoleEntity getRole() {
+    public RoleDTO getRole() {
         return role;
     }
 
-    public void setRole(RoleEntity role) {
+    public void setRole(RoleDTO role) {
         this.role = role;
     }
 
@@ -130,7 +107,7 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "UserDTO{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
