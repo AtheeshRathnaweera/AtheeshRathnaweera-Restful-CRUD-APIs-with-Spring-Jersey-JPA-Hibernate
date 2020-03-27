@@ -1,34 +1,92 @@
 package com.atheesh.app.ws.service.impl;
 
+import com.atheesh.app.ws.entities.ItemEntity;
+import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.repositories.ItemRepository;
 import com.atheesh.app.ws.service.ItemService;
 import com.atheesh.app.ws.shared.dto.ItemDTO;
+import com.atheesh.app.ws.shared.enums.Status;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+
+@Service("itemService")
+@Transactional(propagation= Propagation.REQUIRED)
 public class ItemServiceImpl implements ItemService {
+
+    @Autowired
+    ItemRepository itemRepository;
 
     @Override
     public ItemDTO getItemById(Integer id) {
+        Optional<ItemEntity> recItem = itemRepository.findById(id);
+
+        if(recItem.isPresent()){
+            return convertEntityToDTO(recItem.get());
+        }
+
         return null;
+    }
+
+    @Override
+    public List<ItemDTO> getItemByStatus(Status status) {
+        List<ItemEntity> itemEntityList = itemRepository.findItemEntityByStatusEquals(status);
+        List<ItemDTO> itemDTOList = new ArrayList<>();
+
+        for(ItemEntity itemEntity : itemEntityList){
+            itemDTOList.add(convertEntityToDTO(itemEntity));
+        }
+
+        return itemDTOList;
     }
 
     @Override
     public List<ItemDTO> getAllItems() {
-        return null;
+        List<ItemEntity> itemEntityList = itemRepository.findAll();
+        List<ItemDTO> itemDTOList = new ArrayList<>();
+
+        for(ItemEntity itemEntity : itemEntityList){
+            itemDTOList.add(convertEntityToDTO(itemEntity));
+        }
+
+        return itemDTOList;
     }
 
     @Override
-    public ItemDTO save(Integer id, ItemDTO itemDTO) {
-        return null;
+    public ItemDTO save(ItemDTO itemDTO) {
+        ItemEntity savedItem = itemRepository.save(convertDTOToEntity(itemDTO));
+        return convertEntityToDTO(savedItem);
     }
 
     @Override
     public boolean update(Integer id, ItemDTO itemDTO) {
-        return false;
+        int affectedRows = itemRepository.updateTheItemById(id,itemDTO.getName(),itemDTO.getStatus(),new Date());
+
+        if(affectedRows > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
     public boolean delete(Integer id) {
-        return false;
+        itemRepository.deleteById(id);
+        return true;
+    }
+
+    private ItemDTO convertEntityToDTO(ItemEntity itemEntity){
+        return (ItemDTO) ConversionFactory.conversion(itemEntity,new ItemDTO());
+    }
+
+    private ItemEntity convertDTOToEntity(ItemDTO itemDTO){
+        return (ItemEntity) ConversionFactory.conversion(itemDTO,new ItemEntity());
     }
 }

@@ -69,14 +69,14 @@ public class UsersEntryPoint {
 
     @PUT
     @Consumes({ MediaType.APPLICATION_JSON} )
-    @Produces({ MediaType.APPLICATION_JSON} )
+    @Produces({ MediaType.TEXT_PLAIN} )
     @Path("/{id}")
     public boolean update(@PathParam("id") Integer id, UserRequest userRequest) {
         return userService.update(id, convertRequestToDTO(userRequest));
     }
 
     @DELETE
-    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
+    @Produces({ MediaType.TEXT_PLAIN} )
     @Path("/{id}")
     public boolean delete(@PathParam("id") int id){
         return userService.delete(id);

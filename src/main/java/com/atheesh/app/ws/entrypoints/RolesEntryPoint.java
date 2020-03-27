@@ -67,7 +67,7 @@ public class RolesEntryPoint {
     }
 
     @PUT
-    @Consumes({ MediaType.APPLICATION_JSON })
+    @Consumes({ MediaType.TEXT_PLAIN })
     @Path("/{id}")
     public boolean update(@PathParam("id") int id, RoleRequest roleRequest) {
         return roleService.update(id, convertRequestTODTO(roleRequest));
