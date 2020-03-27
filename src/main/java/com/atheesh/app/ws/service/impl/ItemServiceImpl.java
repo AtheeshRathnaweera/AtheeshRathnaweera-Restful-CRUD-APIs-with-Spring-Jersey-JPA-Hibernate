@@ -61,6 +61,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO save(ItemDTO itemDTO) {
+        System.out.println("received new item : "+itemDTO.toString());
+        itemDTO.setCreatedDate(new Date());
+        itemDTO.setUpdatedDate(new Date());
         ItemEntity savedItem = itemRepository.save(convertDTOToEntity(itemDTO));
         return convertEntityToDTO(savedItem);
     }

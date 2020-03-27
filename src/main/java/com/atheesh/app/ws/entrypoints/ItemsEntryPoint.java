@@ -1,11 +1,7 @@
 package com.atheesh.app.ws.entrypoints;
 
-import com.atheesh.app.ws.entities.ItemEntity;
-import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.model.request.ItemRequest;
-import com.atheesh.app.ws.model.request.UserRequest;
 import com.atheesh.app.ws.model.response.ItemResponse;
-import com.atheesh.app.ws.model.response.UserResponse;
 import com.atheesh.app.ws.service.ItemService;
 import com.atheesh.app.ws.shared.dto.ItemDTO;
 import com.atheesh.app.ws.shared.enums.Status;
@@ -27,8 +23,9 @@ public class ItemsEntryPoint {
     ItemService itemService;
 
     @GET
-    @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
-    public List<ItemResponse> getItemsByStatus(Status status) {
+    @Produces({ MediaType.APPLICATION_JSON} )
+    @Path("/status/{status}")
+    public List<ItemResponse> getItemsByStatus(@PathParam("status") Status status) {
         List<ItemDTO> itemDTOList = itemService.getItemByStatus(status);
         List<ItemResponse> itemResponseList = new ArrayList<>();
 
@@ -49,6 +46,14 @@ public class ItemsEntryPoint {
             itemResponseList.add(convertDTOToResponse(itemDTO));
         }
         return itemResponseList;
+    }
+
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON} )
+    @Path("/{id}")
+    public ItemResponse getItemById(@PathParam("id") Integer id){
+        ItemDTO itemDTO = itemService.getItemById(id);
+        return convertDTOToResponse(itemDTO);
     }
 
     @POST
@@ -81,6 +86,6 @@ public class ItemsEntryPoint {
     }
 
     private ItemDTO convertRequestToDTO(ItemRequest itemRequest){
-        return (ItemDTO) conversion(itemRequest,new ItemRequest());
+        return (ItemDTO) conversion(itemRequest,new ItemDTO());
     }
 }
