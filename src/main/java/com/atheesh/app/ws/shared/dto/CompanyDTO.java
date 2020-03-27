@@ -2,12 +2,16 @@ package com.atheesh.app.ws.shared.dto;
 
 import com.atheesh.app.ws.shared.enums.Status;
 
+import java.util.Date;
+
 public class CompanyDTO {
 
     private Integer id;
     private String name;
     private String websiteUrl;
     private String phoneNumber;
+    private Date createdDate;
+    private Date updatedDate;
     private Status status;
 
     public CompanyDTO() {
@@ -45,6 +49,22 @@ public class CompanyDTO {
         this.phoneNumber = phoneNumber;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -60,6 +80,8 @@ public class CompanyDTO {
                 ", name='" + name + '\'' +
                 ", websiteUrl='" + websiteUrl + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
                 ", status=" + status +
                 '}';
     }

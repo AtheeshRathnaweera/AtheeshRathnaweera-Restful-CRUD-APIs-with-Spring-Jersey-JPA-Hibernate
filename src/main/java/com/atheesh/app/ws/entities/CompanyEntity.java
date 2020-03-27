@@ -4,6 +4,7 @@ import com.atheesh.app.ws.shared.enums.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name="company")
@@ -23,15 +24,23 @@ public class CompanyEntity {
     private String phoneNumber;
 
     @NotNull
+    private Date createdDate;
+
+    @NotNull
+    private Date updatedDate;
+
+    @NotNull
     private Status status;
 
     public CompanyEntity() {
     }
 
-    public CompanyEntity(@NotNull String name, @NotNull String websiteUrl, @NotNull String phoneNumber, @NotNull Status status) {
+    public CompanyEntity(@NotNull String name, @NotNull String websiteUrl, @NotNull String phoneNumber, @NotNull Date createdDate, @NotNull Date updatedDate, @NotNull Status status) {
         this.name = name;
         this.websiteUrl = websiteUrl;
         this.phoneNumber = phoneNumber;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
         this.status = status;
     }
 
@@ -67,6 +76,22 @@ public class CompanyEntity {
         this.phoneNumber = phoneNumber;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -82,6 +107,8 @@ public class CompanyEntity {
                 ", name='" + name + '\'' +
                 ", websiteUrl='" + websiteUrl + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
                 ", status=" + status +
                 '}';
     }

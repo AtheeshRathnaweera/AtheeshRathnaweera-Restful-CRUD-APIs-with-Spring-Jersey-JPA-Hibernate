@@ -8,9 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="dfbbe8b4-dddf-438a-9c29-a7c68eef78a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/ItemEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/ItemEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/ItemsEntryPoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/ItemsEntryPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/ItemServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/ItemServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,36 +38,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="RolesEntryPoint.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/RolesEntryPoint.java">
+      <file leaf-file-name="CompanyRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsEntryPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/ItemsEntryPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersEntryPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/UsersEntryPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1304">
-              <caret line="78" column="36" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+            <state relative-caret-position="198">
+              <caret line="18" column="216" lean-forward="false" selection-start-line="18" selection-start-column="216" selection-end-line="18" selection-end-column="216" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompanyRequest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/CompanyRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding>
+                <element signature="e#303#304#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,27 +92,21 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/factory/RoleFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/Company.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/enums/Status.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/RoleEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/CompanyRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/ItemRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/RoleRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/RoleResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/ItemDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/RoleDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/ItemResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/UserRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/UserResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/UserDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/enums/UserStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/factory/EnumFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/factory/CompanyFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/factory/UserFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/factory/ConversionFactory.java" />
@@ -133,10 +120,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/ItemRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/RolesEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/UsersEntryPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/ItemEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/ItemServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/ItemsEntryPoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java" />
       </list>
     </option>
   </component>
@@ -589,7 +582,7 @@
       <workItem from="1585235928831" duration="60000" />
       <workItem from="1585250910412" duration="3751000" />
       <workItem from="1585284330737" duration="15193000" />
-      <workItem from="1585326934145" duration="8192000" />
+      <workItem from="1585326934145" duration="13425000" />
     </task>
     <task id="LOCAL-00001" summary="new entities and other classes created">
       <created>1585254619004</created>
@@ -619,11 +612,18 @@
       <option name="project" value="LOCAL" />
       <updated>1585331749552</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="item module errors fixed">
+      <created>1585335173090</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585335173090</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74513000" />
+    <option name="totallyTimeSpent" value="79746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -646,7 +646,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28464016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -700,7 +700,8 @@
     <MESSAGE value="user apis implemented" />
     <MESSAGE value="updated with new methods" />
     <MESSAGE value="item module created" />
-    <option name="LAST_COMMIT_MESSAGE" value="item module created" />
+    <MESSAGE value="item module errors fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="item module errors fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -759,23 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/enums/ItemStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -788,45 +772,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/CompanyRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#802#803#0" expanded="false" />
-            <element signature="e#846#847#0" expanded="false" />
-            <element signature="e#882#883#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="56" column="18" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-          <folding>
-            <element signature="e#920#921#0" expanded="false" />
-            <element signature="e#949#950#0" expanded="false" />
-            <element signature="e#993#994#0" expanded="false" />
-            <element signature="e#1029#1030#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="56" column="18" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-          <folding>
-            <element signature="e#906#907#0" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#979#980#0" expanded="false" />
-            <element signature="e#1015#1016#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,13 +805,6 @@
         <state relative-caret-position="242">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -921,45 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/ItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/ItemRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="63" lean-forward="false" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="36" column="11" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="17" />
-          <folding>
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#428#429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/RoleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
@@ -1002,16 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/ItemResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding>
-            <element signature="e#434#435#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/RoleDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -1044,35 +934,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/RoleEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110">
-          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/UserEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
           <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/ItemEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,27 +950,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/ItemServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/ItemRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="65" column="40" lean-forward="false" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+        <state relative-caret-position="132">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/RoleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/UsersEntryPoint.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/ItemEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1304">
-          <caret line="78" column="36" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+        <state relative-caret-position="-21">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/ItemResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/response/CompanyResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1175#1176#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/shared/dto/CompanyDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1195#1196#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/ItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="14" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/ItemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/ItemsEntryPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="-19">
           <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1114,10 +1055,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/RolesEntryPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        <state relative-caret-position="22">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/UsersEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="78" column="36" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entrypoints/CompanyEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/entities/CompanyEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/impl/CompanyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/service/CompanyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/repositories/CompanyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="18" column="216" lean-forward="false" selection-start-line="18" selection-start-column="216" selection-end-line="18" selection-end-column="216" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/atheesh/app/ws/model/request/CompanyRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#303#304#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
           </folding>
         </state>
       </provider>
