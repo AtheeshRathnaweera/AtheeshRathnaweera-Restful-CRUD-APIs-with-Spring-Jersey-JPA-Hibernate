@@ -1,9 +1,11 @@
 package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.UserEntity;
+import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.repositories.UserRepository;
 import com.atheesh.app.ws.service.UserService;
 import com.atheesh.app.ws.shared.dto.UserDTO;
+import com.atheesh.app.ws.shared.enums.UserStatus;
 import org.glassfish.jersey.internal.guava.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import static com.atheesh.app.ws.factory.UserFactory.convertUserDTOtoEntity;
-import static com.atheesh.app.ws.factory.UserFactory.convertUserEntityToDTO;
 
 @Service("userService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         Optional<UserEntity> recUserOp = userRepository.findById(id);
 
         if (recUserOp.isPresent()) {
-            return convertUserEntityToDTO(recUserOp.get());
+            return convertEntityToDTO(recUserOp.get());
         } else {
             return null;
         }
@@ -47,10 +47,22 @@ public class UserServiceImpl implements UserService {
         List<UserEntity> foundRecords = Lists.newArrayList(userRepository.findAll());
 
         for (UserEntity userEntity : foundRecords) {
-            returnValue.add(convertUserEntityToDTO(userEntity));
+            returnValue.add(convertEntityToDTO(userEntity));
         }
 
         return returnValue;
+    }
+
+    @Override
+    public List<UserDTO> getUsersByStatus(UserStatus status) {
+        List<UserEntity> userEntities = userRepository.getUserEntitiesByStatusEquals(status);
+        List<UserDTO> userDTOList = new ArrayList<>();
+
+        for(UserEntity userEntity : userEntities){
+            userDTOList.add(convertEntityToDTO(userEntity));
+        }
+
+        return userDTOList;
     }
 
     @Override
@@ -58,9 +70,9 @@ public class UserServiceImpl implements UserService {
         Date nowDate = new Date();
         newUser.setCreatedDate(nowDate);
 
-        UserEntity userEntity = convertUserDTOtoEntity(newUser);
+        UserEntity userEntity = (UserEntity) ConversionFactory.conversion(newUser, new UserEntity());
         UserEntity savedUser = userRepository.save(userEntity);
-        return convertUserEntityToDTO(savedUser);
+        return convertEntityToDTO(savedUser);
     }
 
     @Override
@@ -85,6 +97,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public String test() {
         return "test work";
+    }
+
+    private UserDTO convertEntityToDTO(UserEntity userEntity){
+        return (UserDTO) ConversionFactory.conversion(userEntity,new UserDTO());
     }
 
 
