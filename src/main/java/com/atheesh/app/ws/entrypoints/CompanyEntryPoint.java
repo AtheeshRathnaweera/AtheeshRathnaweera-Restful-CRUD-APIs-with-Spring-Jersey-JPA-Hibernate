@@ -26,7 +26,8 @@ public class CompanyEntryPoint {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public String getCompanyById() {
+    @Path("/{id}")
+    public String getCompanyById(@PathParam("id") Integer id) {
         return "company will be received.";
     }
 

@@ -10,7 +10,6 @@ public class UserRequest {
     private String email;
     private String phoneNumber;
     private String nic;
-    private RoleRequest role;
     private UserStatus status;
 
     public UserRequest() {
@@ -56,14 +55,6 @@ public class UserRequest {
         this.nic = nic;
     }
 
-    public RoleRequest getRole() {
-        return role;
-    }
-
-    public void setRole(RoleRequest role) {
-        this.role = role;
-    }
-
     public UserStatus getStatus() {
         return status;
     }
@@ -80,7 +71,6 @@ public class UserRequest {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nic='" + nic + '\'' +
-                ", role=" + role +
                 ", status=" + status +
                 '}';
     }

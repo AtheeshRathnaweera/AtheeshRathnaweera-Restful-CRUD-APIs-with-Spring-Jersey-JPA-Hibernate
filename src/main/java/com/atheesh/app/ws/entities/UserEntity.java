@@ -32,11 +32,6 @@ public class UserEntity {
     private String nic;
 
     @NotNull
-    @JoinColumn(name="role_id",nullable=false,referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private RoleEntity role;
-
-    @NotNull
     private Date createdDate;
 
     @NotNull
@@ -45,13 +40,12 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(@NotNull String firstName, @NotNull String lastName, @NotNull String email, @NotNull String phoneNumber, @NotNull String nic, @NotNull RoleEntity role, @NotNull Date createdDate, @NotNull UserStatus status) {
+    public UserEntity(@NotNull String firstName, @NotNull String lastName, @NotNull String email, @NotNull String phoneNumber, @NotNull String nic, @NotNull Date createdDate, @NotNull UserStatus status) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.nic = nic;
-        this.role = role;
         this.createdDate = createdDate;
         this.status = status;
     }
@@ -104,14 +98,6 @@ public class UserEntity {
         this.nic = nic;
     }
 
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
-
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -137,7 +123,6 @@ public class UserEntity {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nic='" + nic + '\'' +
-                ", role=" + role +
                 ", createdDate=" + createdDate +
                 ", status=" + status +
                 '}';

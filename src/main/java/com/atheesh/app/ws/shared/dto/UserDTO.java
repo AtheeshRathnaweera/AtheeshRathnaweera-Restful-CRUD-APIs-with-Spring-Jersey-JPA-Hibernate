@@ -13,7 +13,6 @@ public class UserDTO implements Serializable{
     private String email;
     private String phoneNumber;
     private String nic;
-    private RoleDTO role;
     private Date createdDate;
     private UserStatus status;
 
@@ -68,14 +67,6 @@ public class UserDTO implements Serializable{
         this.nic = nic;
     }
 
-    public RoleDTO getRole() {
-        return role;
-    }
-
-    public void setRole(RoleDTO role) {
-        this.role = role;
-    }
-
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -101,7 +92,6 @@ public class UserDTO implements Serializable{
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nic='" + nic + '\'' +
-                ", role=" + role +
                 ", createdDate=" + createdDate +
                 ", status=" + status +
                 '}';

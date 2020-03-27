@@ -1,12 +1,10 @@
 package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.UserEntity;
-import com.atheesh.app.ws.factory.UserFactory;
 import com.atheesh.app.ws.repositories.UserRepository;
 import com.atheesh.app.ws.service.UserService;
 import com.atheesh.app.ws.shared.dto.UserDTO;
 import org.glassfish.jersey.internal.guava.Lists;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,7 +20,7 @@ import static com.atheesh.app.ws.factory.UserFactory.convertUserDTOtoEntity;
 import static com.atheesh.app.ws.factory.UserFactory.convertUserEntityToDTO;
 
 @Service("userService")
-@Transactional(propagation= Propagation.REQUIRED)
+@Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -33,12 +31,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserById(int id) {
+    public UserDTO getUserById(Integer id) {
         Optional<UserEntity> recUserOp = userRepository.findById(id);
 
         if (recUserOp.isPresent()) {
             return convertUserEntityToDTO(recUserOp.get());
-        }else{
+        } else {
             return null;
         }
     }
@@ -46,15 +44,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUsers() {
         List<UserDTO> returnValue = new ArrayList();
-
         List<UserEntity> foundRecords = Lists.newArrayList(userRepository.findAll());
 
-        for(UserEntity userEntity:foundRecords)
-        {
+        for (UserEntity userEntity : foundRecords) {
             returnValue.add(convertUserEntityToDTO(userEntity));
         }
-
-        System.out.println("in getall users : "+returnValue.size());
 
         return returnValue;
     }
@@ -65,20 +59,25 @@ public class UserServiceImpl implements UserService {
         newUser.setCreatedDate(nowDate);
 
         UserEntity userEntity = convertUserDTOtoEntity(newUser);
-       // userEntity.getRole().setId(1);
-        System.out.println("user before saved : entity : "+userEntity.toString());
         UserEntity savedUser = userRepository.save(userEntity);
-        System.out.println("saved user " + savedUser.toString());
         return convertUserEntityToDTO(savedUser);
     }
 
     @Override
-    public UserDTO update(int id, UserDTO userDTO) {
-        return null;
+    public boolean update(Integer id, UserDTO newUserDTO) {
+
+        int updatedRows = userRepository.updateTheRoleById(id, newUserDTO.getFirstName(), newUserDTO.getLastName(), newUserDTO.getEmail(), newUserDTO.getPhoneNumber(),
+                newUserDTO.getNic(), newUserDTO.getStatus());
+
+        if (updatedRows > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(Integer id) {
         userRepository.deleteById(id);
         return true;
     }

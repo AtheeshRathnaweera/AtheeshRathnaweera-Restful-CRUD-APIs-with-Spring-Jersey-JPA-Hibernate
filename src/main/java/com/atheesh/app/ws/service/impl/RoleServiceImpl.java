@@ -4,7 +4,6 @@ import com.atheesh.app.ws.entities.RoleEntity;
 import com.atheesh.app.ws.repositories.RoleRepository;
 import com.atheesh.app.ws.service.RoleService;
 import com.atheesh.app.ws.shared.dto.RoleDTO;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,7 +24,7 @@ public class RoleServiceImpl implements RoleService {
     RoleRepository roleRepository;
 
     @Override
-    public RoleDTO getRoleById(int id) {
+    public RoleDTO getRoleById(Integer id) {
         Optional<RoleEntity> recRoleOp = roleRepository.findById(id);
 
         if (recRoleOp.isPresent()) {
@@ -54,7 +53,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public boolean update(int id, RoleDTO roleDTO) {
+    public boolean update(Integer id, RoleDTO roleDTO) {
         System.out.println("update service name : "+roleDTO.getName());
         int affectedRows = roleRepository.updateTheRoleById(id, roleDTO.getName());
         if(affectedRows > 0){
@@ -65,10 +64,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public boolean delete(int id) {
-        RoleEntity roleEntity = new RoleEntity();
-        roleEntity.setId(id);
-        roleRepository.delete(roleEntity);
+    public boolean delete(Integer id) {
+        roleRepository.deleteById(id);
         return true;
     }
 }

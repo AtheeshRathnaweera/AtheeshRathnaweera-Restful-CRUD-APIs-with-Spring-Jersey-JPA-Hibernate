@@ -13,7 +13,6 @@ public class UserResponse {
     private String email;
     private String phoneNumber;
     private String nic;
-    private RoleResponse role;
     private Date createdDate;
     private UserStatus status;
 
@@ -68,14 +67,6 @@ public class UserResponse {
         this.nic = nic;
     }
 
-    public RoleResponse getRole() {
-        return role;
-    }
-
-    public void setRole(RoleResponse role) {
-        this.role = role;
-    }
-
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -101,7 +92,6 @@ public class UserResponse {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nic='" + nic + '\'' +
-                ", role=" + role +
                 ", createdDate=" + createdDate +
                 ", status=" + status +
                 '}';

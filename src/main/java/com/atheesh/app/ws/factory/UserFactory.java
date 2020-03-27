@@ -17,7 +17,6 @@ public class UserFactory {
         if(userRequest != null) {
             UserDTO userDTO = new UserDTO();
             BeanUtils.copyProperties(userRequest, userDTO);
-            userDTO.setRole(convertRequestToDTO(userRequest.getRole()));
             return userDTO;
         }else{
             return null;
@@ -31,7 +30,6 @@ public class UserFactory {
         if(userDTO != null) {
             UserResponse userResponse = new UserResponse();
             BeanUtils.copyProperties(userDTO, userResponse);
-            userResponse.setRole(convertDTOTOResponse(userDTO.getRole()));
             System.out.println("user response creation ended : " + userResponse.toString());
             return userResponse;
         }else{
@@ -44,7 +42,6 @@ public class UserFactory {
         if(userEntity != null) {
             UserDTO userDTO = new UserDTO();
             BeanUtils.copyProperties(userEntity, userDTO);
-            userDTO.setRole(convertEntityToDTO(userEntity.getRole()));
             System.out.println("convery user entity to dto end : " + userDTO.toString());
             return userDTO;
         }else{
@@ -56,7 +53,6 @@ public class UserFactory {
         if(userDTO != null) {
             UserEntity userEntity = new UserEntity();
             BeanUtils.copyProperties(userDTO, userEntity);
-            userEntity.setRole(convertDTOToEntity(userDTO.getRole()));
             return userEntity;
         }else{
             return null;

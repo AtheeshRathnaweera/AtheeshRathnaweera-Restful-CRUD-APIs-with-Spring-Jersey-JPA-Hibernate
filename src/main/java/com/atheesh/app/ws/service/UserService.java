@@ -9,7 +9,7 @@ public interface UserService{
     UserDTO getUserById(Integer id);
     List<UserDTO> getAllUsers();
     UserDTO save(UserDTO userDTO);
-    UserDTO update(Integer id, UserDTO userDTO);
+    boolean update(Integer id, UserDTO userDTO);
     boolean delete(Integer id);
     String test();
 
