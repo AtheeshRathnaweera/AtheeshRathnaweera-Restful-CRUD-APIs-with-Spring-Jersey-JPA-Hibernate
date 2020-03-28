@@ -18,4 +18,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, Integer> {
     int updateTheRoleById(@Param("id") int id, @Param("newName") String newName);
 
     List<RoleEntity> getRoleEntitiesByStatusEquals(Status status);
+
+    RoleEntity findRoleEntityByName(String name);
 }

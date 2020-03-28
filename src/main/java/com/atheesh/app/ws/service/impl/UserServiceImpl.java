@@ -2,6 +2,8 @@ package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.UserEntity;
 import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.factory.DTOToEntityFactory;
+import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.UserRepository;
 import com.atheesh.app.ws.service.UserService;
 import com.atheesh.app.ws.shared.dto.UserDTO;
@@ -35,7 +37,7 @@ public class UserServiceImpl implements UserService {
         Optional<UserEntity> recUserOp = userRepository.findById(id);
 
         if (recUserOp.isPresent()) {
-            return convertEntityToDTO(recUserOp.get());
+            return EntityToDTOFactory.user(recUserOp.get());
         } else {
             return null;
         }
@@ -47,7 +49,7 @@ public class UserServiceImpl implements UserService {
         List<UserEntity> foundRecords = Lists.newArrayList(userRepository.findAll());
 
         for (UserEntity userEntity : foundRecords) {
-            returnValue.add(convertEntityToDTO(userEntity));
+            returnValue.add(EntityToDTOFactory.user(userEntity));
         }
 
         return returnValue;
@@ -59,7 +61,7 @@ public class UserServiceImpl implements UserService {
         List<UserDTO> userDTOList = new ArrayList<>();
 
         for(UserEntity userEntity : userEntities){
-            userDTOList.add(convertEntityToDTO(userEntity));
+            userDTOList.add(EntityToDTOFactory.user(userEntity));
         }
 
         return userDTOList;
@@ -70,9 +72,8 @@ public class UserServiceImpl implements UserService {
         Date nowDate = new Date();
         newUser.setCreatedDate(nowDate);
 
-        UserEntity userEntity = (UserEntity) ConversionFactory.conversion(newUser, new UserEntity());
-        UserEntity savedUser = userRepository.save(userEntity);
-        return convertEntityToDTO(savedUser);
+        UserEntity savedUser = userRepository.save(DTOToEntityFactory.user(newUser));
+        return EntityToDTOFactory.user(savedUser);
     }
 
     @Override
@@ -99,9 +100,6 @@ public class UserServiceImpl implements UserService {
         return "test work";
     }
 
-    private UserDTO convertEntityToDTO(UserEntity userEntity){
-        return (UserDTO) ConversionFactory.conversion(userEntity,new UserDTO());
-    }
 
 
 }

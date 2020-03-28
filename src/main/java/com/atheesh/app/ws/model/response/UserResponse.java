@@ -19,6 +19,10 @@ public class UserResponse {
     public UserResponse() {
     }
 
+    public UserResponse(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

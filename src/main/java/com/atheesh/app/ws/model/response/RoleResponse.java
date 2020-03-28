@@ -14,6 +14,10 @@ public class RoleResponse {
     public RoleResponse() {
     }
 
+    public RoleResponse(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

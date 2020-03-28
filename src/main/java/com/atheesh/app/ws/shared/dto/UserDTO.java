@@ -19,6 +19,10 @@ public class UserDTO implements Serializable{
     public UserDTO() {
     }
 
+    public UserDTO(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

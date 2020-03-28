@@ -2,6 +2,7 @@ package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.RoleEntity;
 import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.repositories.RoleRepository;
 import com.atheesh.app.ws.service.RoleService;
 import com.atheesh.app.ws.shared.dto.RoleDTO;
@@ -48,7 +49,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleDTO save(RoleDTO roleDTO) {
-        RoleEntity roleEntity = roleRepository.save(convertDTOToEntity(roleDTO));
+        RoleEntity roleEntity = roleRepository.save(DTOToEntityFactory.role(roleDTO));
         return convertEntityToDTO(roleEntity);
     }
 
@@ -83,7 +84,5 @@ public class RoleServiceImpl implements RoleService {
         return (RoleDTO) ConversionFactory.conversion(roleEntity,new RoleDTO());
     }
 
-    private RoleEntity convertDTOToEntity(RoleDTO roleDTO){
-        return (RoleEntity) ConversionFactory.conversion(roleDTO,new RoleEntity());
-    }
+
 }

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 public class RoleEntity {
 
     @Id
+    @Column(name = "role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

@@ -13,6 +13,10 @@ public class RoleDTO implements Serializable{
     public RoleDTO() {
     }
 
+    public RoleDTO(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
