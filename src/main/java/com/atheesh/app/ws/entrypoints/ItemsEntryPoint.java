@@ -1,5 +1,7 @@
 package com.atheesh.app.ws.entrypoints;
 
+import com.atheesh.app.ws.factory.DTOToResponseFactory;
+import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.ItemRequest;
 import com.atheesh.app.ws.model.response.ItemResponse;
 import com.atheesh.app.ws.service.ItemService;
@@ -30,7 +32,7 @@ public class ItemsEntryPoint {
         List<ItemResponse> itemResponseList = new ArrayList<>();
 
         for(ItemDTO itemDTO : itemDTOList){
-            itemResponseList.add(convertDTOToResponse(itemDTO));
+            itemResponseList.add(DTOToResponseFactory.item(itemDTO));
         }
         return itemResponseList;
     }
@@ -43,7 +45,7 @@ public class ItemsEntryPoint {
         List<ItemResponse> itemResponseList = new ArrayList<>();
 
         for(ItemDTO itemDTO : itemDTOList){
-            itemResponseList.add(convertDTOToResponse(itemDTO));
+            itemResponseList.add(DTOToResponseFactory.item(itemDTO));
         }
         return itemResponseList;
     }
@@ -53,15 +55,15 @@ public class ItemsEntryPoint {
     @Path("/{id}")
     public ItemResponse getItemById(@PathParam("id") Integer id){
         ItemDTO itemDTO = itemService.getItemById(id);
-        return convertDTOToResponse(itemDTO);
+        return DTOToResponseFactory.item(itemDTO);
     }
 
     @POST
     @Consumes({ MediaType.APPLICATION_JSON } )
     @Produces({ MediaType.APPLICATION_JSON } )
     public ItemResponse save(ItemRequest itemRequest) {
-        ItemDTO savedItem = itemService.save(convertRequestToDTO(itemRequest));
-        return convertDTOToResponse(savedItem);
+        ItemDTO savedItem = itemService.save(RequestToDTOFactory.item(itemRequest));
+        return DTOToResponseFactory.item(savedItem);
     }
 
     @PUT
@@ -69,7 +71,7 @@ public class ItemsEntryPoint {
     @Produces({ MediaType.TEXT_PLAIN })
     @Path("/{id}")
     public boolean update(@PathParam("id") Integer id, ItemRequest newItemRequest) {
-        return itemService.update(id,convertRequestToDTO(newItemRequest));
+        return itemService.update(id, RequestToDTOFactory.item(newItemRequest));
     }
 
     @DELETE
@@ -80,12 +82,4 @@ public class ItemsEntryPoint {
     }
 
 
-    //conversion methods
-    private ItemResponse convertDTOToResponse(ItemDTO itemDTO){
-        return (ItemResponse) conversion(itemDTO,new ItemResponse());
-    }
-
-    private ItemDTO convertRequestToDTO(ItemRequest itemRequest){
-        return (ItemDTO) conversion(itemRequest,new ItemDTO());
-    }
 }

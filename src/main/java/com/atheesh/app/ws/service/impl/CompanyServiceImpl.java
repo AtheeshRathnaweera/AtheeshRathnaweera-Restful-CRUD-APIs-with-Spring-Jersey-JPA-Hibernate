@@ -1,6 +1,8 @@
 package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.CompanyEntity;
+import com.atheesh.app.ws.factory.DTOToEntityFactory;
+import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.CompanyRepository;
 import com.atheesh.app.ws.service.CompanyService;
 import com.atheesh.app.ws.shared.dto.CompanyDTO;
@@ -31,7 +33,7 @@ public class CompanyServiceImpl implements CompanyService {
         List<CompanyDTO> companyDTOList = new ArrayList<>();
 
         for(CompanyEntity companyEntity : companyEntityList){
-            companyDTOList.add(convertEntityToDTO(companyEntity));
+            companyDTOList.add(EntityToDTOFactory.company(companyEntity));
         }
 
         return companyDTOList;
@@ -42,7 +44,7 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<CompanyEntity> companyEntityOptional = companyRepository.findById(id);
 
         if(companyEntityOptional.isPresent()){
-            return convertEntityToDTO(companyEntityOptional.get());
+            return EntityToDTOFactory.company(companyEntityOptional.get());
         }
         return null;
     }
@@ -53,7 +55,7 @@ public class CompanyServiceImpl implements CompanyService {
         List<CompanyDTO> companyDTOList = new ArrayList<>();
 
         for(CompanyEntity companyEntity : companyEntityList){
-            companyDTOList.add(convertEntityToDTO(companyEntity));
+            companyDTOList.add(EntityToDTOFactory.company(companyEntity));
         }
         return companyDTOList;
     }
@@ -62,8 +64,8 @@ public class CompanyServiceImpl implements CompanyService {
     public CompanyDTO save(CompanyDTO companyDTO) {
         companyDTO.setCreatedDate(new Date());
         companyDTO.setUpdatedDate(new Date());
-        CompanyEntity companyEntity = companyRepository.save(convertDTOToEntity(companyDTO));
-        return convertEntityToDTO(companyEntity);
+        CompanyEntity companyEntity = companyRepository.save(DTOToEntityFactory.company(companyDTO));
+        return EntityToDTOFactory.company(companyEntity);
     }
 
     @Override
@@ -84,11 +86,7 @@ public class CompanyServiceImpl implements CompanyService {
         return false;
     }
 
-    private CompanyDTO convertEntityToDTO(CompanyEntity companyEntity){
-        return (CompanyDTO) conversion(companyEntity, new CompanyDTO());
-    }
 
-    private CompanyEntity convertDTOToEntity(CompanyDTO companyDTO){
-        return (CompanyEntity) conversion(companyDTO,new CompanyEntity());
-    }
+
+
 }

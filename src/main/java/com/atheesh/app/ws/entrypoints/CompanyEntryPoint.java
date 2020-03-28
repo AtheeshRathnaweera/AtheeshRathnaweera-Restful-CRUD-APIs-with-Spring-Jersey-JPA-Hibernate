@@ -1,5 +1,8 @@
 package com.atheesh.app.ws.entrypoints;
 
+import com.atheesh.app.ws.factory.DTOToEntityFactory;
+import com.atheesh.app.ws.factory.DTOToResponseFactory;
+import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.CompanyRequest;
 import com.atheesh.app.ws.model.response.CompanyResponse;
 import com.atheesh.app.ws.service.CompanyService;
@@ -30,7 +33,7 @@ public class CompanyEntryPoint {
         List<CompanyResponse> companyResponseList = new ArrayList<>();
 
         for(CompanyDTO companyDTO : companyDTOList){
-            companyResponseList.add(convertDTOToResponse(companyDTO));
+            companyResponseList.add(DTOToResponseFactory.company(companyDTO));
         }
         return companyResponseList;
     }
@@ -43,7 +46,7 @@ public class CompanyEntryPoint {
         List<CompanyResponse> companyResponseList = new ArrayList<>();
 
         for(CompanyDTO companyDTO : companyDTOList){
-            companyResponseList.add(convertDTOToResponse(companyDTO));
+            companyResponseList.add(DTOToResponseFactory.company(companyDTO));
         }
         return companyResponseList;
     }
@@ -53,15 +56,15 @@ public class CompanyEntryPoint {
     @Path("/{id}")
     public CompanyResponse getCompanyById(@PathParam("id") Integer id) {
         CompanyDTO companyDTO = companyService.getCompanyById(id);
-        return convertDTOToResponse(companyDTO);
+        return DTOToResponseFactory.company(companyDTO);
     }
 
     @POST
     @Consumes({ MediaType.APPLICATION_JSON })
     @Produces({ MediaType.APPLICATION_JSON })
     public CompanyResponse save(CompanyRequest companyRequest) {
-        CompanyDTO companyDTO = companyService.save(convertRequestToDTO(companyRequest));
-        return convertDTOToResponse(companyDTO);
+        CompanyDTO companyDTO = companyService.save(RequestToDTOFactory.company(companyRequest));
+        return DTOToResponseFactory.company(companyDTO);
     }
 
     @PUT
@@ -69,7 +72,7 @@ public class CompanyEntryPoint {
     @Produces({ MediaType.APPLICATION_JSON })
     @Path("/{id}")
     public boolean update(@PathParam("id") Integer id, CompanyRequest companyRequest) {
-        return companyService.update(id,convertRequestToDTO(companyRequest));
+        return companyService.update(id, RequestToDTOFactory.company(companyRequest));
     }
 
     @DELETE
@@ -80,12 +83,8 @@ public class CompanyEntryPoint {
         return true;
     }
 
-    private CompanyResponse convertDTOToResponse(CompanyDTO companyDTO){
-        return (CompanyResponse) conversion(companyDTO,new CompanyResponse());
-    }
 
-    private CompanyDTO convertRequestToDTO(CompanyRequest companyRequest){
-        return (CompanyDTO) conversion(companyRequest, new CompanyDTO());
-    }
+
+
 
 }

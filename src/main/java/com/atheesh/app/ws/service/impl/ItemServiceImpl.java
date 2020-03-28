@@ -2,6 +2,9 @@ package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.ItemEntity;
 import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.factory.DTOToEntityFactory;
+import com.atheesh.app.ws.factory.DTOToResponseFactory;
+import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.ItemRepository;
 import com.atheesh.app.ws.service.ItemService;
 import com.atheesh.app.ws.shared.dto.ItemDTO;
@@ -29,9 +32,8 @@ public class ItemServiceImpl implements ItemService {
         Optional<ItemEntity> recItem = itemRepository.findById(id);
 
         if(recItem.isPresent()){
-            return convertEntityToDTO(recItem.get());
+            return EntityToDTOFactory.item(recItem.get());
         }
-
         return null;
     }
 
@@ -41,9 +43,8 @@ public class ItemServiceImpl implements ItemService {
         List<ItemDTO> itemDTOList = new ArrayList<>();
 
         for(ItemEntity itemEntity : itemEntityList){
-            itemDTOList.add(convertEntityToDTO(itemEntity));
+            itemDTOList.add(EntityToDTOFactory.item(itemEntity));
         }
-
         return itemDTOList;
     }
 
@@ -53,7 +54,7 @@ public class ItemServiceImpl implements ItemService {
         List<ItemDTO> itemDTOList = new ArrayList<>();
 
         for(ItemEntity itemEntity : itemEntityList){
-            itemDTOList.add(convertEntityToDTO(itemEntity));
+            itemDTOList.add(EntityToDTOFactory.item(itemEntity));
         }
 
         return itemDTOList;
@@ -64,8 +65,8 @@ public class ItemServiceImpl implements ItemService {
         System.out.println("received new item : "+itemDTO.toString());
         itemDTO.setCreatedDate(new Date());
         itemDTO.setUpdatedDate(new Date());
-        ItemEntity savedItem = itemRepository.save(convertDTOToEntity(itemDTO));
-        return convertEntityToDTO(savedItem);
+        ItemEntity savedItem = itemRepository.save(DTOToEntityFactory.item(itemDTO));
+        return EntityToDTOFactory.item(savedItem);
     }
 
     @Override
@@ -85,11 +86,4 @@ public class ItemServiceImpl implements ItemService {
         return true;
     }
 
-    private ItemDTO convertEntityToDTO(ItemEntity itemEntity){
-        return (ItemDTO) ConversionFactory.conversion(itemEntity,new ItemDTO());
-    }
-
-    private ItemEntity convertDTOToEntity(ItemDTO itemDTO){
-        return (ItemEntity) ConversionFactory.conversion(itemDTO,new ItemEntity());
-    }
 }

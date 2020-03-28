@@ -2,6 +2,8 @@ package com.atheesh.app.ws.entrypoints;
 
 
 import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.factory.DTOToResponseFactory;
+import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.UserRequest;
 import com.atheesh.app.ws.model.response.UserResponse;
 import com.atheesh.app.ws.service.UserService;
@@ -32,7 +34,7 @@ public class UsersEntryPoint {
         List<UserResponse> userResponseList = new ArrayList<>();
 
         for(UserDTO userDTO : usersResList ){
-            userResponseList.add(convertDTOTOResponse(userDTO));
+            userResponseList.add(DTOToResponseFactory.user(userDTO));
         }
         return userResponseList;
     }
@@ -45,7 +47,7 @@ public class UsersEntryPoint {
         List<UserResponse> usersResList = new ArrayList<>();
 
         for(UserDTO user:usersList){
-            usersResList.add(convertDTOTOResponse(user));
+            usersResList.add(DTOToResponseFactory.user(user));
         }
 
         return usersResList;
@@ -56,15 +58,15 @@ public class UsersEntryPoint {
     @Path("/{id}")
     public UserResponse getUserById(@PathParam("id") int id) {
         UserDTO user = userService.getUserById(id);
-        return convertDTOTOResponse(user);
+        return DTOToResponseFactory.user(user);
     }
 
     @POST
     @Consumes({ MediaType.APPLICATION_JSON} )
     @Produces({ MediaType.APPLICATION_JSON} )
     public UserResponse save(UserRequest userRequest) {
-        UserDTO savedUser = userService.save(convertRequestToDTO(userRequest));
-        return convertDTOTOResponse(savedUser);
+        UserDTO savedUser = userService.save(RequestToDTOFactory.user(userRequest));
+        return DTOToResponseFactory.user(savedUser);
     }
 
     @PUT
@@ -72,7 +74,7 @@ public class UsersEntryPoint {
     @Produces({ MediaType.TEXT_PLAIN} )
     @Path("/{id}")
     public boolean update(@PathParam("id") Integer id, UserRequest userRequest) {
-        return userService.update(id, convertRequestToDTO(userRequest));
+        return userService.update(id, RequestToDTOFactory.user(userRequest));
     }
 
     @DELETE
@@ -81,17 +83,4 @@ public class UsersEntryPoint {
     public boolean delete(@PathParam("id") int id){
         return userService.delete(id);
     }
-
-    //conversion methods
-    private UserResponse convertDTOTOResponse(UserDTO userDTO){
-        return (UserResponse) ConversionFactory.conversion(userDTO,new UserResponse());
-    }
-
-    private UserDTO convertRequestToDTO(UserRequest userRequest){
-        return (UserDTO) ConversionFactory.conversion(userRequest,new UserDTO());
-    }
-    //conversion methods
-
-
-
 }

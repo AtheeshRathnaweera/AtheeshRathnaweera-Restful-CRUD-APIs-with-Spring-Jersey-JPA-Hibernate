@@ -2,6 +2,8 @@ package com.atheesh.app.ws.entrypoints;
 
 
 import com.atheesh.app.ws.factory.ConversionFactory;
+import com.atheesh.app.ws.factory.DTOToResponseFactory;
+import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.RoleRequest;
 import com.atheesh.app.ws.model.response.RoleResponse;
 import com.atheesh.app.ws.service.RoleService;
@@ -30,7 +32,7 @@ public class RolesEntryPoint {
         List<RoleResponse> roleResponseList = new ArrayList<>();
 
         for(RoleDTO roleDTO:roleDTOList){
-            roleResponseList.add(convertDTOTOResponse(roleDTO));
+            roleResponseList.add(DTOToResponseFactory.role(roleDTO));
         }
 
         return roleResponseList;
@@ -44,7 +46,7 @@ public class RolesEntryPoint {
         List<RoleResponse> roleResponseList = new ArrayList<>();
 
         for(RoleDTO roleDTO : roleDTOList){
-            roleResponseList.add(convertDTOTOResponse(roleDTO));
+            roleResponseList.add(DTOToResponseFactory.role(roleDTO));
         }
         return roleResponseList;
     }
@@ -54,7 +56,7 @@ public class RolesEntryPoint {
     @Path("/{id}")
     public RoleResponse getRoleById(@PathParam("id") int id){
         RoleDTO roleDTO = roleService.getRoleById(id);
-        return convertDTOTOResponse(roleDTO);
+        return DTOToResponseFactory.role(roleDTO);
     }
 
 
@@ -62,15 +64,15 @@ public class RolesEntryPoint {
     @Consumes({ MediaType.APPLICATION_JSON })
     @Produces({ MediaType.APPLICATION_JSON })
     public RoleResponse save(RoleRequest roleRequest) {
-        RoleDTO savedRole = roleService.save(convertRequestTODTO(roleRequest));
-        return convertDTOTOResponse(savedRole);
+        RoleDTO savedRole = roleService.save(RequestToDTOFactory.role(roleRequest));
+        return DTOToResponseFactory.role(savedRole);
     }
 
     @PUT
     @Consumes({ MediaType.TEXT_PLAIN })
     @Path("/{id}")
     public boolean update(@PathParam("id") int id, RoleRequest roleRequest) {
-        return roleService.update(id, convertRequestTODTO(roleRequest));
+        return roleService.update(id, RequestToDTOFactory.role(roleRequest));
     }
 
     @DELETE
@@ -80,13 +82,4 @@ public class RolesEntryPoint {
         return roleService.delete(id);
     }
 
-    //conversion methods
-    private RoleResponse convertDTOTOResponse(RoleDTO roleDTO){
-        return (RoleResponse) ConversionFactory.conversion(roleDTO,new RoleResponse());
-    }
-
-    private RoleDTO convertRequestTODTO(RoleRequest roleRequest){
-        return (RoleDTO) ConversionFactory.conversion(roleRequest,new RoleDTO());
-    }
-    //conversion methods
 }

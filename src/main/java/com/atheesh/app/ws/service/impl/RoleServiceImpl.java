@@ -3,6 +3,7 @@ package com.atheesh.app.ws.service.impl;
 import com.atheesh.app.ws.entities.RoleEntity;
 import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.factory.DTOToEntityFactory;
+import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.RoleRepository;
 import com.atheesh.app.ws.service.RoleService;
 import com.atheesh.app.ws.shared.dto.RoleDTO;
@@ -30,7 +31,7 @@ public class RoleServiceImpl implements RoleService {
 
         if (recRoleOp.isPresent()) {
             RoleEntity role = recRoleOp.get();
-            return convertEntityToDTO(role);
+            return EntityToDTOFactory.role(role);
         } else {
             return null;
         }
@@ -42,7 +43,7 @@ public class RoleServiceImpl implements RoleService {
         List<RoleDTO> roleDTOList = new ArrayList<>();
 
         for(RoleEntity roleEntity : roleEntityList){
-            roleDTOList.add(convertEntityToDTO(roleEntity));
+            roleDTOList.add(EntityToDTOFactory.role(roleEntity));
         }
         return roleDTOList;
     }
@@ -50,7 +51,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public RoleDTO save(RoleDTO roleDTO) {
         RoleEntity roleEntity = roleRepository.save(DTOToEntityFactory.role(roleDTO));
-        return convertEntityToDTO(roleEntity);
+        return EntityToDTOFactory.role(roleEntity);
     }
 
     @Override
@@ -75,14 +76,12 @@ public class RoleServiceImpl implements RoleService {
         List<RoleDTO> roleDTOList = new ArrayList<>();
 
         for(RoleEntity roleEntity : roleEntityList){
-            roleDTOList.add(convertEntityToDTO(roleEntity));
+            roleDTOList.add(EntityToDTOFactory.role(roleEntity));
         }
         return roleDTOList;
     }
 
-    private RoleDTO convertEntityToDTO(RoleEntity roleEntity){
-        return (RoleDTO) ConversionFactory.conversion(roleEntity,new RoleDTO());
-    }
+
 
 
 }
