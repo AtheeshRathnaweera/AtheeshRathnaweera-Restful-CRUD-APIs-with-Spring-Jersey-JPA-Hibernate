@@ -43,8 +43,8 @@ public class UserRoleDTO {
     public String toString() {
         return "UserRoleDTO{" +
                 "id=" + id +
-                ", user=" + user.toString() +
-                ", role=" + role.toString() +
+                ", user=" + user +
+                ", role=" + role +
                 '}';
     }
 }

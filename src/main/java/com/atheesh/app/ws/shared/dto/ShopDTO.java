@@ -18,6 +18,10 @@ public class ShopDTO {
     public ShopDTO() {
     }
 
+    public ShopDTO(Integer id) {
+        this.id = id;
+    }
+
     public ShopDTO(Integer id, String name, String email, String phoneNumber, String district, String town, String address, CompanyDTO company, UserDTO manager, Status status) {
         this.id = id;
         this.name = name;
@@ -121,8 +125,8 @@ public class ShopDTO {
                 ", district='" + district + '\'' +
                 ", town='" + town + '\'' +
                 ", address='" + address + '\'' +
-                ", company=" + company.toString() +
-                ", manager=" + manager.toString() +
+                ", company=" + company +
+                ", manager=" + manager +
                 ", status=" + status +
                 '}';
     }

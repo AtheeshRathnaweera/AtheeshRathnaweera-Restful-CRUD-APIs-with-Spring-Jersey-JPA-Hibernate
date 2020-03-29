@@ -42,4 +42,13 @@ public class DTOToResponseFactory {
 
         return shopResponse;
     }
+
+    public static StoreResponse store(StoreDTO storeDTO){
+        StoreResponse storeResponse = (StoreResponse) ConversionFactory.conversion(storeDTO,new StoreResponse());
+
+        storeResponse.setItem(item(storeDTO.getItem()));
+        storeResponse.setShop(shop(storeDTO.getShop()));
+
+        return storeResponse;
+    }
 }

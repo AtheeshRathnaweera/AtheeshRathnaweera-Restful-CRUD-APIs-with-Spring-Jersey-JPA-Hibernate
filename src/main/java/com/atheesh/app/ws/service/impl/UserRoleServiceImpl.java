@@ -97,11 +97,7 @@ public class UserRoleServiceImpl implements UserRoleService{
         //get the role by the name
         int affectedRows = userRoleRepository.updateTheUserRoleById(id,roleEntity,DTOToEntityFactory.user(userRoleDTO.getUser()));
 
-        if(affectedRows > 0){
-           return true;
-        }else {
-            return false;
-        }
+        return affectedRows > 0;
     }
 
     @Override

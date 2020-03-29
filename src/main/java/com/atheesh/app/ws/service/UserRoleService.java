@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface UserRoleService {
 
-    UserRoleDTO getUserRoleById(Integer id);
     List<UserRoleDTO> getAllUserRoles();
     List<UserRoleDTO> getUserRolesByUser(Integer userId);
     List<UserRoleDTO> getUserRolesByRole(String roleName);
+    UserRoleDTO getUserRoleById(Integer id);
     UserRoleDTO save(UserRoleDTO userRoleDTO);
     boolean update(Integer id, UserRoleDTO userRoleDTO);
     boolean delete(Integer id);

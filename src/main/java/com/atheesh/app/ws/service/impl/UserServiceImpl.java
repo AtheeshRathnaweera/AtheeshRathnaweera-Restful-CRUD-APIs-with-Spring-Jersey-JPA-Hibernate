@@ -82,11 +82,7 @@ public class UserServiceImpl implements UserService {
         int updatedRows = userRepository.updateTheRoleById(id, newUserDTO.getFirstName(), newUserDTO.getLastName(), newUserDTO.getEmail(), newUserDTO.getPhoneNumber(),
                 newUserDTO.getNic(), newUserDTO.getStatus());
 
-        if (updatedRows > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return updatedRows > 0;
     }
 
     @Override

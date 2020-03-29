@@ -72,12 +72,7 @@ public class CompanyServiceImpl implements CompanyService {
     public boolean update(Integer id, CompanyDTO companyDTO) {
         int affectedRows = companyRepository.updateTheCompanyById(id,companyDTO.getName(),companyDTO.getPhoneNumber(),companyDTO.getWebsiteUrl(),
                 new Date(),companyDTO.getStatus());
-
-        if(affectedRows > 0){
-           return true;
-        }else{
-            return false;
-        }
+        return affectedRows > 0;
     }
 
     @Override

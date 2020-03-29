@@ -91,11 +91,7 @@ public class ShopServiceImpl implements ShopService {
         int affectedRows = shopRepository.updateTheShopById(id,shopDTO.getName(),shopDTO.getEmail(),shopDTO.getPhoneNumber(),shopDTO.getDistrict(),
                 shopDTO.getTown(),shopDTO.getAddress(),companyEntity,managerEntity,shopDTO.getStatus());
 
-        if(affectedRows > 0){
-            return true;
-        }else {
-            return false;
-        }
+        return affectedRows > 0;
     }
 
     @Override

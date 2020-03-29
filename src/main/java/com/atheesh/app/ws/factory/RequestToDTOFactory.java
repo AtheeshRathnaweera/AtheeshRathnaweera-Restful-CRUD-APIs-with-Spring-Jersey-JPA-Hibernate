@@ -34,12 +34,23 @@ public class RequestToDTOFactory {
     }
 
     public static ShopDTO shop(ShopRequest shopRequest){
-
         CompanyDTO companyDTO = new CompanyDTO(shopRequest.getCompanyId());
         UserDTO userDTO = new UserDTO(shopRequest.getManagerId());
 
         return new ShopDTO(null,shopRequest.getName(),shopRequest.getEmail(),shopRequest.getPhoneNumber(),
                 shopRequest.getDistrict(),shopRequest.getTown(),shopRequest.getAddress(),companyDTO,userDTO,shopRequest.getStatus());
 
+    }
+
+    public static StoreDTO store(StoreRequest storeRequest){
+
+        System.out.println("tttttttttttt");
+
+        ShopDTO shopDTO = new ShopDTO(storeRequest.getShopId());
+        ItemDTO itemDTO = new ItemDTO(storeRequest.getItemId());
+
+        System.out.println("shop : "+shopDTO.toString());
+
+        return new StoreDTO(null,itemDTO,shopDTO,storeRequest.getAmount(),storeRequest.getMinLimit(),storeRequest.getStatus());
     }
 }

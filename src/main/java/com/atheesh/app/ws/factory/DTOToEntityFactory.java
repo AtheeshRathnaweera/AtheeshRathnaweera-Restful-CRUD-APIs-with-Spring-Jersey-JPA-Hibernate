@@ -42,4 +42,13 @@ public class DTOToEntityFactory {
 
         return convertedShop;
     }
+
+    public static StoreEntity store(StoreDTO storeDTO){
+        StoreEntity convertedStore = (StoreEntity) ConversionFactory.conversion(storeDTO,new StoreEntity());
+
+        convertedStore.setItem(item(storeDTO.getItem()));
+        convertedStore.setShop(shop(storeDTO.getShop()));
+
+        return convertedStore;
+    }
 }

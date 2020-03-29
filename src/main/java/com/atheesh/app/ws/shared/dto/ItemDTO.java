@@ -17,6 +17,10 @@ public class ItemDTO implements Serializable {
     public ItemDTO() {
     }
 
+    public ItemDTO(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -56,11 +56,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public boolean update(Integer id, RoleDTO roleDTO) {
         int affectedRows = roleRepository.updateTheRoleById(id, roleDTO.getName());
-        if(affectedRows > 0){
-            return true;
-        }else{
-           return false;
-        }
+        return affectedRows > 0;
     }
 
     @Override

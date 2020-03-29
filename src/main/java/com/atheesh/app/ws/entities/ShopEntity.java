@@ -137,8 +137,8 @@ public class ShopEntity {
                 ", district='" + district + '\'' +
                 ", town='" + town + '\'' +
                 ", address='" + address + '\'' +
-                ", company=" + company.toString() +
-                ", manager=" + manager.toString() +
+                ", company=" + company +
+                ", manager=" + manager +
                 ", status=" + status +
                 '}';
     }
