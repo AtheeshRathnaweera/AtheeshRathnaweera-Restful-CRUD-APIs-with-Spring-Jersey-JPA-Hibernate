@@ -95,10 +95,6 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-    @Override
-    public String test() {
-        return "test work";
-    }
 
 
 

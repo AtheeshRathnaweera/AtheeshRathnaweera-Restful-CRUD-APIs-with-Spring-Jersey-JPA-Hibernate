@@ -76,14 +76,17 @@ public class UserRoleServiceImpl implements UserRoleService{
 
     @Override
     public UserRoleDTO save(UserRoleDTO userRoleDTO) {
+
         RoleEntity roleEntity = roleRepository.findRoleEntityByName(userRoleDTO.getRole().getName());
-        UserEntity userEntity = (UserEntity) ConversionFactory.conversion(userRoleDTO.getUser(),new UserEntity());
+        UserRoleEntity userRoleEntity = DTOToEntityFactory.userRole(userRoleDTO);
 
         if(roleEntity == null){
             return null;
         }
 
-        UserRoleEntity savedUserRole = userRoleRepository.save(new UserRoleEntity(userEntity,roleEntity));
+        userRoleEntity.setRole(roleEntity);
+
+        UserRoleEntity savedUserRole = userRoleRepository.save(userRoleEntity);
         return EntityToDTOFactory.userRole(savedUserRole);
     }
 

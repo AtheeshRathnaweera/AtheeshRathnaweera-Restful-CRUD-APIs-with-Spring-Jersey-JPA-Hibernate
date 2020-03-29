@@ -13,7 +13,6 @@ public interface UserService{
     UserDTO save(UserDTO userDTO);
     boolean update(Integer id, UserDTO userDTO);
     boolean delete(Integer id);
-    String test();
 
 
 }

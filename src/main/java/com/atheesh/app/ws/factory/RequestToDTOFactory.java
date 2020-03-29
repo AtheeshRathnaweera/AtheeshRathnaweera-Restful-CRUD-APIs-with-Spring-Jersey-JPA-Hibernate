@@ -21,9 +21,7 @@ public class RequestToDTOFactory {
 
     public static UserRoleDTO userRole(UserRoleRequest userRoleRequest){
 
-        UserDTO newUser = new UserDTO();
-        newUser.setId(userRoleRequest.getUserId());
-
+        UserDTO newUser = new UserDTO(userRoleRequest.getUserId());
         RoleDTO newRole = new RoleDTO();
         newRole.setName(userRoleRequest.getRoleName());
 

@@ -87,7 +87,6 @@ public class UserRoleEntryPoint {
     @Produces({ MediaType.APPLICATION_JSON} )
     @Path("/{id}")
     public boolean update(@PathParam("id") Integer id,UserRoleRequest userRoleRequest){
-        System.out.println("update request received");
         return userRoleService.update(id, RequestToDTOFactory.userRole(userRoleRequest));
     }
 

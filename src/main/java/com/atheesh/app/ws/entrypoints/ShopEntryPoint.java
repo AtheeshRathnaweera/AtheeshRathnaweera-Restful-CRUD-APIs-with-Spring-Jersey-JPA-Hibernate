@@ -1,6 +1,5 @@
 package com.atheesh.app.ws.entrypoints;
 
-import com.atheesh.app.ws.entities.ShopEntity;
 import com.atheesh.app.ws.factory.DTOToResponseFactory;
 import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.ShopRequest;

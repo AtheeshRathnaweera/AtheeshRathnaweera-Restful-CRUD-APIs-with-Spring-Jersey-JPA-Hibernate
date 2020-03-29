@@ -12,10 +12,12 @@ public class EntityToDTOFactory {
     }
 
     public static UserRoleDTO userRole(UserRoleEntity userRoleEntity){
-        RoleDTO newRoleDTO = new RoleDTO(userRoleEntity.getRole().getId());
-        UserDTO newUserDTO = new UserDTO(userRoleEntity.getUser().getId());
+        UserRoleDTO userRoleDTO = (UserRoleDTO) ConversionFactory.conversion(userRoleEntity,new UserRoleDTO());
 
-        return new UserRoleDTO(userRoleEntity.getId(),newUserDTO,newRoleDTO);
+        userRoleDTO.setUser(user(userRoleEntity.getUser()));
+        userRoleDTO.setRole(role(userRoleEntity.getRole()));
+
+        return userRoleDTO;
 
     }
 
@@ -34,8 +36,8 @@ public class EntityToDTOFactory {
     public static ShopDTO shop(ShopEntity shopEntity){
         ShopDTO shopDTO = (ShopDTO) ConversionFactory.conversion(shopEntity,new ShopDTO());
 
-        shopDTO.setCompany((CompanyDTO) ConversionFactory.conversion(shopEntity.getCompany(),new CompanyDTO()));
-        shopDTO.setManager((UserDTO) ConversionFactory.conversion(shopEntity.getManager(),new UserDTO()));
+        shopDTO.setCompany(company(shopEntity.getCompany()));
+        shopDTO.setManager(user(shopEntity.getManager()));
 
         return shopDTO;
     }

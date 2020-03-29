@@ -21,10 +21,12 @@ public class DTOToResponseFactory {
 
     public static UserRoleResponse userRole(UserRoleDTO userRoleDTO){
 
-        UserResponse userResponse = new UserResponse(userRoleDTO.getUser().getId());
-        RoleResponse roleResponse = new RoleResponse(userRoleDTO.getRole().getId());
+        UserRoleResponse userRoleResponse = (UserRoleResponse) ConversionFactory.conversion(userRoleDTO,new UserRoleResponse());
 
-        return new UserRoleResponse(userRoleDTO.getId(),userResponse,roleResponse);
+        userRoleResponse.setRole(role(userRoleDTO.getRole()));
+        userRoleResponse.setUser(user(userRoleDTO.getUser()));
+
+        return userRoleResponse;
 
     }
 
@@ -35,8 +37,8 @@ public class DTOToResponseFactory {
     public static ShopResponse shop(ShopDTO shopDTO){
         ShopResponse shopResponse = (ShopResponse) ConversionFactory.conversion(shopDTO,new ShopResponse());
 
-        shopResponse.setCompany((CompanyResponse) ConversionFactory.conversion(shopDTO.getCompany(),new CompanyResponse()));
-        shopResponse.setManager((UserResponse) ConversionFactory.conversion(shopDTO.getManager(),new UserResponse()));
+        shopResponse.setCompany(company(shopDTO.getCompany()));
+        shopResponse.setManager(user(shopDTO.getManager()));
 
         return shopResponse;
     }
