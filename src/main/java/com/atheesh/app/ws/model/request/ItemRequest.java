@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ItemRequest {
 
     private String name;
+    private String imageUrl;
     private Status status;
 
     public ItemRequest() {
@@ -19,6 +20,14 @@ public class ItemRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Status getStatus() {
@@ -33,6 +42,7 @@ public class ItemRequest {
     public String toString() {
         return "ItemRequest{" +
                 "name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", status=" + status +
                 '}';
     }

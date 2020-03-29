@@ -71,7 +71,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public boolean update(Integer id, ItemDTO itemDTO) {
-        int affectedRows = itemRepository.updateTheItemById(id,itemDTO.getName(),itemDTO.getStatus(),new Date());
+        int affectedRows = itemRepository.updateTheItemById(id,itemDTO.getName(),itemDTO.getImageUrl(),itemDTO.getStatus(),new Date());
 
         if(affectedRows > 0){
             return true;

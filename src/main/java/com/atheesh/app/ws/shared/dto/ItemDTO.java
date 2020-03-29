@@ -9,6 +9,7 @@ public class ItemDTO implements Serializable {
 
     private Integer id;
     private String name;
+    private String imageUrl;
     private Date createdDate;
     private Date updatedDate;
     private Status status;
@@ -26,6 +27,14 @@ public class ItemDTO implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setName(String name) {
@@ -61,6 +70,7 @@ public class ItemDTO implements Serializable {
         return "ItemDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", status=" + status +

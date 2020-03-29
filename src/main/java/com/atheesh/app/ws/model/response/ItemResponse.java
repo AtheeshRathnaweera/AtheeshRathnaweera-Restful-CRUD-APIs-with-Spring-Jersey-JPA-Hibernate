@@ -10,6 +10,7 @@ public class ItemResponse {
 
     private Integer id;
     private String name;
+    private String imageUrl;
     private Date createdDate;
     private Date updatedDate;
     private Status status;
@@ -31,6 +32,14 @@ public class ItemResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Date getCreatedDate() {
@@ -62,6 +71,7 @@ public class ItemResponse {
         return "ItemResponse{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", status=" + status +

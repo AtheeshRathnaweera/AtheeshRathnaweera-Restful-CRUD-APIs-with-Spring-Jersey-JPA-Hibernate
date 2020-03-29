@@ -18,6 +18,9 @@ public class ItemEntity {
     private String name;
 
     @NotNull
+    private String imageUrl;
+
+    @NotNull
     private Date createdDate;
 
     @NotNull
@@ -29,8 +32,9 @@ public class ItemEntity {
     public ItemEntity() {
     }
 
-    public ItemEntity(@NotNull String name, @NotNull Date createdDate, @NotNull Date updatedDate, @NotNull Status status) {
+    public ItemEntity(@NotNull String name, @NotNull String imageUrl, @NotNull Date createdDate, @NotNull Date updatedDate, @NotNull Status status) {
         this.name = name;
+        this.imageUrl = imageUrl;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
         this.status = status;
@@ -50,6 +54,14 @@ public class ItemEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Date getCreatedDate() {
@@ -81,6 +93,7 @@ public class ItemEntity {
         return "ItemEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", status=" + status +
