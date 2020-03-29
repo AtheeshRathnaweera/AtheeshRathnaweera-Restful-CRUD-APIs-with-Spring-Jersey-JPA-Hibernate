@@ -7,7 +7,6 @@ import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.StoreRepository;
 import com.atheesh.app.ws.service.StoreService;
-import com.atheesh.app.ws.shared.dto.ItemDTO;
 import com.atheesh.app.ws.shared.dto.StoreDTO;
 import com.atheesh.app.ws.shared.enums.Status;
 import org.springframework.beans.factory.annotation.Autowired;

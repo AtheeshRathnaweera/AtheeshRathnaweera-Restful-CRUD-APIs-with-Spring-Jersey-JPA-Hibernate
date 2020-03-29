@@ -43,13 +43,8 @@ public class RequestToDTOFactory {
     }
 
     public static StoreDTO store(StoreRequest storeRequest){
-
-        System.out.println("tttttttttttt");
-
         ShopDTO shopDTO = new ShopDTO(storeRequest.getShopId());
         ItemDTO itemDTO = new ItemDTO(storeRequest.getItemId());
-
-        System.out.println("shop : "+shopDTO.toString());
 
         return new StoreDTO(null,itemDTO,shopDTO,storeRequest.getAmount(),storeRequest.getMinLimit(),storeRequest.getStatus());
     }
