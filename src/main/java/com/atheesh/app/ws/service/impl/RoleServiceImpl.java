@@ -30,8 +30,7 @@ public class RoleServiceImpl implements RoleService {
         Optional<RoleEntity> recRoleOp = roleRepository.findById(id);
 
         if (recRoleOp.isPresent()) {
-            RoleEntity role = recRoleOp.get();
-            return EntityToDTOFactory.role(role);
+            return EntityToDTOFactory.role(recRoleOp.get());
         } else {
             return null;
         }

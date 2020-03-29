@@ -34,4 +34,14 @@ public class RequestToDTOFactory {
     public static UserDTO user(UserRequest userRequest){
         return (UserDTO) ConversionFactory.conversion(userRequest,new UserDTO());
     }
+
+    public static ShopDTO shop(ShopRequest shopRequest){
+
+        CompanyDTO companyDTO = new CompanyDTO(shopRequest.getCompanyId());
+        UserDTO userDTO = new UserDTO(shopRequest.getManagerId());
+
+        return new ShopDTO(null,shopRequest.getName(),shopRequest.getEmail(),shopRequest.getPhoneNumber(),
+                shopRequest.getDistrict(),shopRequest.getTown(),shopRequest.getAddress(),companyDTO,userDTO,shopRequest.getStatus());
+
+    }
 }

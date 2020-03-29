@@ -31,4 +31,14 @@ public class EntityToDTOFactory {
         return (RoleDTO) ConversionFactory.conversion(roleEntity,new RoleDTO());
     }
 
+    public static ShopDTO shop(ShopEntity shopEntity){
+        ShopDTO shopDTO = (ShopDTO) ConversionFactory.conversion(shopEntity,new ShopDTO());
+
+        shopDTO.setCompany((CompanyDTO) ConversionFactory.conversion(shopEntity.getCompany(),new CompanyDTO()));
+        shopDTO.setManager((UserDTO) ConversionFactory.conversion(shopEntity.getManager(),new UserDTO()));
+
+        return shopDTO;
+    }
+
+
 }

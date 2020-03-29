@@ -1,13 +1,9 @@
 package com.atheesh.app.ws.factory;
 
-import com.atheesh.app.ws.entities.CompanyEntity;
-import com.atheesh.app.ws.entities.ItemEntity;
-import com.atheesh.app.ws.entities.RoleEntity;
-import com.atheesh.app.ws.entities.UserEntity;
-import com.atheesh.app.ws.shared.dto.CompanyDTO;
-import com.atheesh.app.ws.shared.dto.ItemDTO;
-import com.atheesh.app.ws.shared.dto.RoleDTO;
-import com.atheesh.app.ws.shared.dto.UserDTO;
+import com.atheesh.app.ws.entities.*;
+import com.atheesh.app.ws.shared.dto.*;
+
+import javax.jws.soap.SOAPBinding;
 
 import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
 
@@ -27,5 +23,17 @@ public class DTOToEntityFactory {
 
     public static ItemEntity item(ItemDTO itemDTO){
         return (ItemEntity) ConversionFactory.conversion(itemDTO,new ItemEntity());
+    }
+
+    public static ShopEntity shop(ShopDTO shopDTO){
+        ShopEntity convertedShop =  (ShopEntity) ConversionFactory.conversion(shopDTO,new ShopEntity());
+        UserEntity convertedUser = (UserEntity) ConversionFactory.conversion(shopDTO.getManager(),new UserEntity());
+
+        CompanyEntity companyEntity = (CompanyEntity) ConversionFactory.conversion(shopDTO.getCompany(),new CompanyEntity());
+
+        convertedShop.setCompany(companyEntity);
+        convertedShop.setManager(convertedUser);
+
+        return convertedShop;
     }
 }

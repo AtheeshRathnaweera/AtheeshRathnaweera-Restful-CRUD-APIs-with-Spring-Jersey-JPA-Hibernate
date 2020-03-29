@@ -1,6 +1,5 @@
 package com.atheesh.app.ws.entrypoints;
 
-import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.factory.DTOToResponseFactory;
 import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.CompanyRequest;
@@ -15,8 +14,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
 
 @Component
 @Path("company")

@@ -31,4 +31,13 @@ public class DTOToResponseFactory {
     public static UserResponse user(UserDTO userDTO){
         return (UserResponse) ConversionFactory.conversion(userDTO,new UserResponse());
     }
+
+    public static ShopResponse shop(ShopDTO shopDTO){
+        ShopResponse shopResponse = (ShopResponse) ConversionFactory.conversion(shopDTO,new ShopResponse());
+
+        shopResponse.setCompany((CompanyResponse) ConversionFactory.conversion(shopDTO.getCompany(),new CompanyResponse()));
+        shopResponse.setManager((UserResponse) ConversionFactory.conversion(shopDTO.getManager(),new UserResponse()));
+
+        return shopResponse;
+    }
 }

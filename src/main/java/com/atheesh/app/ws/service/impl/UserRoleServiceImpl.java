@@ -89,7 +89,9 @@ public class UserRoleServiceImpl implements UserRoleService{
 
     @Override
     public boolean update(Integer id, UserRoleDTO userRoleDTO) {
+        //get the role by the name
         RoleEntity roleEntity = roleRepository.findRoleEntityByName(userRoleDTO.getRole().getName());
+        //get the role by the name
         int affectedRows = userRoleRepository.updateTheUserRoleById(id,roleEntity,DTOToEntityFactory.user(userRoleDTO.getUser()));
 
         if(affectedRows > 0){
