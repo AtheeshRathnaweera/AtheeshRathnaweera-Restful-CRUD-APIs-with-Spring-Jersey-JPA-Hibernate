@@ -22,7 +22,7 @@ public interface StoreRepository extends JpaRepository<StoreEntity, Integer> {
     @Modifying(clearAutomatically = true)
     @Transactional
     @Query("update StoreEntity storeEntity set storeEntity.item=:newItem,storeEntity.shop=:newShop," +
-            "storeEntity.amount=:newAmount,storeEntity.minLimit=:newLimit,storeEntity.status=:newStatus where storeEntity.id =:id")
+            "storeEntity.amount=:newAmount,storeEntity.minLimit=:newLimit,storeEntity.currentPrice=:newPrice,storeEntity.status=:newStatus where storeEntity.id =:id")
     int updateTheStoreById(@Param("id") Integer id, @Param("newItem") ItemEntity newItem, @Param("newShop") ShopEntity newShop,
-                          @Param("newAmount") Integer newAmount, @Param("newLimit") Integer newLimit,@Param("newStatus") Status newStatus);
+                          @Param("newAmount") Integer newAmount, @Param("newLimit") Integer newLimit,@Param("newPrice") Integer newPrice,@Param("newStatus") Status newStatus);
 }

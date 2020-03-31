@@ -5,7 +5,6 @@ import com.atheesh.app.ws.shared.enums.Status;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
-@XmlRootElement
 public class ItemResponse {
 
     private Integer id;

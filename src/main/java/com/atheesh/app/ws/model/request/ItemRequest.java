@@ -4,7 +4,6 @@ import com.atheesh.app.ws.shared.enums.Status;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class ItemRequest {
 
     private String name;

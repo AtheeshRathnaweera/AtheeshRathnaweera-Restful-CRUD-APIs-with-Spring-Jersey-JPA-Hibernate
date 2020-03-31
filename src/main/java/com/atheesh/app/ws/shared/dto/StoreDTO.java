@@ -9,17 +9,19 @@ public class StoreDTO {
     private ShopDTO shop;
     private Integer amount;
     private Integer minLimit;
+    private Integer currentPrice;
     private Status status;
 
     public StoreDTO() {
     }
 
-    public StoreDTO(Integer id, ItemDTO item, ShopDTO shop, Integer amount, Integer minLimit, Status status) {
+    public StoreDTO(Integer id, ItemDTO item, ShopDTO shop, Integer amount, Integer minLimit, Integer currentPrice, Status status) {
         this.id = id;
         this.item = item;
         this.shop = shop;
         this.amount = amount;
         this.minLimit = minLimit;
+        this.currentPrice = currentPrice;
         this.status = status;
     }
 
@@ -67,6 +69,14 @@ public class StoreDTO {
         this.minLimit = minLimit;
     }
 
+    public Integer getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Integer currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -83,6 +93,7 @@ public class StoreDTO {
                 ", shop=" + shop +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
+                ", currentPrice=" + currentPrice +
                 ", status=" + status +
                 '}';
     }

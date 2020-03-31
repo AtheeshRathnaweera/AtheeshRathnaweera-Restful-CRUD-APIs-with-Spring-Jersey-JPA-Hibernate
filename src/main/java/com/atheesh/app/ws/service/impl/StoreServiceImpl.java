@@ -95,7 +95,7 @@ public class StoreServiceImpl implements StoreService {
     public boolean update(Integer id, StoreDTO newStoreDTO) {
         ItemEntity newItem = DTOToEntityFactory.item(newStoreDTO.getItem());
         ShopEntity newShop = DTOToEntityFactory.shop(newStoreDTO.getShop());
-        int affectedRows = storeRepository.updateTheStoreById(id,newItem,newShop,newStoreDTO.getAmount(),newStoreDTO.getMinLimit(),newStoreDTO.getStatus());
+        int affectedRows = storeRepository.updateTheStoreById(id,newItem,newShop,newStoreDTO.getAmount(),newStoreDTO.getMinLimit(),newStoreDTO.getCurrentPrice(),newStoreDTO.getStatus());
 
         return affectedRows > 0;
     }

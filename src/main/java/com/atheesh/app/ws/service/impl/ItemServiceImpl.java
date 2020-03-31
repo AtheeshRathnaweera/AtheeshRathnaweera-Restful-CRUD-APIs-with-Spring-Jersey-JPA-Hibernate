@@ -19,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service("itemService")
 @Transactional(propagation= Propagation.REQUIRED)
 public class ItemServiceImpl implements ItemService {

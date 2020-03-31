@@ -30,6 +30,9 @@ public class StoreEntity {
     private Integer minLimit;
 
     @NotNull
+    private Integer currentPrice;
+
+    @NotNull
     private Status status;
 
     public StoreEntity() {
@@ -83,14 +86,23 @@ public class StoreEntity {
         this.status = status;
     }
 
+    public Integer getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Integer currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
     @Override
     public String toString() {
         return "StoreEntity{" +
                 "id=" + id +
-                ", item=" + item.toString() +
-                ", shop=" + shop.toString() +
+                ", item=" + item +
+                ", shop=" + shop +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
+                ", currentPrice=" + currentPrice +
                 ", status=" + status +
                 '}';
     }

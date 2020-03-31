@@ -8,6 +8,7 @@ public class StoreRequest {
     private Integer shopId;
     private Integer amount;
     private Integer minLimit;
+    private Integer currentPrice;
     private Status status;
 
     public StoreRequest() {
@@ -45,6 +46,14 @@ public class StoreRequest {
         this.minLimit = minLimit;
     }
 
+    public Integer getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Integer currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -60,6 +69,7 @@ public class StoreRequest {
                 ", shopId=" + shopId +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
+                ", currentPrice=" + currentPrice +
                 ", status=" + status +
                 '}';
     }

@@ -9,6 +9,7 @@ public class StoreResponse {
     private ShopResponse shop;
     private Integer amount;
     private Integer minLimit;
+    private Integer currentPrice;
     private Status status;
 
     public StoreResponse() {
@@ -54,6 +55,14 @@ public class StoreResponse {
         this.minLimit = minLimit;
     }
 
+    public Integer getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Integer currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -66,10 +75,11 @@ public class StoreResponse {
     public String toString() {
         return "StoreResponse{" +
                 "id=" + id +
-                ", item=" + item.toString() +
-                ", shop=" + shop.toString() +
+                ", item=" + item +
+                ", shop=" + shop +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
+                ", currentPrice=" + currentPrice +
                 ", status=" + status +
                 '}';
     }
