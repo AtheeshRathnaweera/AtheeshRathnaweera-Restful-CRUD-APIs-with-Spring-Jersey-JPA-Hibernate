@@ -32,11 +32,10 @@ public class StoreEntity {
     @NotNull
     private Integer unitQuantity;
 
-    @NotNull
     private String unitSymbol;
 
     @NotNull
-    private Integer unitPrice;
+    private Float unitPrice;
 
     @NotNull
     private String priceSymbol;
@@ -103,11 +102,11 @@ public class StoreEntity {
         this.unitSymbol = unitSymbol;
     }
 
-    public Integer getUnitPrice() {
+    public Float getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Integer unitPrice) {
+    public void setUnitPrice(Float unitPrice) {
         this.unitPrice = unitPrice;
     }
 

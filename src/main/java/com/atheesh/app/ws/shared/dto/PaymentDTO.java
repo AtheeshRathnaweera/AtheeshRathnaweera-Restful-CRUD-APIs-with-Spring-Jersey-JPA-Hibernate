@@ -1,6 +1,5 @@
 package com.atheesh.app.ws.shared.dto;
 
-import com.atheesh.app.ws.model.response.OrderResponse;
 import com.atheesh.app.ws.shared.enums.CardType;
 import com.atheesh.app.ws.shared.enums.PaymentMethod;
 import com.atheesh.app.ws.shared.enums.PaymentStatus;

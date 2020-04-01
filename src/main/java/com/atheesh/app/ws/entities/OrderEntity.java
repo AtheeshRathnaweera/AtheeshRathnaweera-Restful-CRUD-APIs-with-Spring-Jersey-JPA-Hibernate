@@ -28,7 +28,7 @@ public class OrderEntity {
     private Integer amount;
 
     @NotNull
-    private Integer price;
+    private Float price;
 
     @NotNull
     private OrderStatus status;
@@ -74,11 +74,11 @@ public class OrderEntity {
         this.amount = amount;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

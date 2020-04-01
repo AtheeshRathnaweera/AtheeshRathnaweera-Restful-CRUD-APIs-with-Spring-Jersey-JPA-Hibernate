@@ -5,7 +5,6 @@ import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.PaymentRepository;
 import com.atheesh.app.ws.service.PaymentService;
-import com.atheesh.app.ws.shared.dto.OrderDTO;
 import com.atheesh.app.ws.shared.dto.PaymentDTO;
 import com.atheesh.app.ws.shared.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,13 @@ import java.util.*;
 @Transactional(propagation = Propagation.REQUIRED)
 public class PaymentServiceImpl implements PaymentService {
 
-    @Autowired
+    private final
     PaymentRepository paymentRepository;
+
+    @Autowired
+    public PaymentServiceImpl(PaymentRepository paymentRepository) {
+        this.paymentRepository = paymentRepository;
+    }
 
     @Override
     public List<PaymentDTO> getAllPayments() {

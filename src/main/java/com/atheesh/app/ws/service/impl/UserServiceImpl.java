@@ -1,7 +1,6 @@
 package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.UserEntity;
-import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.UserRepository;
@@ -25,8 +24,13 @@ import java.util.Optional;
 @Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    private final
     UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @PostConstruct
     private void init() {

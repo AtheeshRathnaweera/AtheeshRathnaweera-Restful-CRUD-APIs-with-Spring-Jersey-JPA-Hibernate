@@ -4,6 +4,9 @@ import com.atheesh.app.ws.model.request.*;
 import com.atheesh.app.ws.model.response.OrderResponse;
 import com.atheesh.app.ws.shared.dto.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
 
 public class RequestToDTOFactory {
@@ -73,4 +76,22 @@ public class RequestToDTOFactory {
         return paymentDTO;
 
     }
-}
+
+    public static PurchaseDTO purchase(PurchaseRequest purchaseRequest){
+        List<OrderRequest> orderRequestList = purchaseRequest.getOrderList();
+        List<OrderDTO> orderDTOList = new ArrayList<>();
+
+        for(OrderRequest orderRequest : orderRequestList){
+            orderDTOList.add(order(orderRequest));
+        }
+
+        PurchaseDTO purchaseDTO = new PurchaseDTO();
+        purchaseDTO.setOrderList(orderDTOList);
+        purchaseDTO.setPayment(payment(purchaseRequest.getPayment()));
+
+        System.out.println("dd : "+purchaseDTO.toString());
+
+        return purchaseDTO;
+
+    }
+ }

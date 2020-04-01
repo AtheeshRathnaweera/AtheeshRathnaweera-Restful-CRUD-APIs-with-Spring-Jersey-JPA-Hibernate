@@ -6,7 +6,6 @@ import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.OrderRepository;
 import com.atheesh.app.ws.service.OrderService;
 import com.atheesh.app.ws.shared.dto.OrderDTO;
-import com.atheesh.app.ws.shared.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,8 +20,13 @@ import java.util.Optional;
 @Transactional(propagation= Propagation.REQUIRED)
 public class OrderServiceImpl implements OrderService{
 
-    @Autowired
+    private final
     OrderRepository orderRepository;
+
+    @Autowired
+    public OrderServiceImpl(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @Override
     public List<OrderDTO> getAllOrders() {

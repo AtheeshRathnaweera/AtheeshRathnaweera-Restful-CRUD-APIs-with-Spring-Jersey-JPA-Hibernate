@@ -10,7 +10,7 @@ public class StoreRequest {
     private Integer minLimit;
     private Integer unitQuantity;
     private String unitSymbol;
-    private Integer unitPrice;
+    private Float unitPrice;
     private String priceSymbol;
     private Status status;
 
@@ -65,11 +65,11 @@ public class StoreRequest {
         this.unitSymbol = unitSymbol;
     }
 
-    public Integer getUnitPrice() {
+    public Float getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Integer unitPrice) {
+    public void setUnitPrice(Float unitPrice) {
         this.unitPrice = unitPrice;
     }
 

@@ -1,26 +1,36 @@
 package com.atheesh.app.ws.model.request;
 
+import java.util.List;
+
 public class PurchaseRequest {
 
-    private OrderRequest orderRequest;
-    private PaymentRequest paymentRequest;
+    private List<OrderRequest> orderList;
+    private PaymentRequest payment;
 
     public PurchaseRequest() {
     }
 
-    public OrderRequest getOrderRequest() {
-        return orderRequest;
+    public List<OrderRequest> getOrderList() {
+        return orderList;
     }
 
-    public void setOrderRequest(OrderRequest orderRequest) {
-        this.orderRequest = orderRequest;
+    public void setOrderList(List<OrderRequest> orderList) {
+        this.orderList = orderList;
     }
 
-    public PaymentRequest getPaymentRequest() {
-        return paymentRequest;
+    public PaymentRequest getPayment() {
+        return payment;
     }
 
-    public void setPaymentRequest(PaymentRequest paymentRequest) {
-        this.paymentRequest = paymentRequest;
+    public void setPayment(PaymentRequest payment) {
+        this.payment = payment;
+    }
+
+    @Override
+    public String toString() {
+        return "PurchaseRequest{" +
+                "orderList=" + orderList +
+                ", payment=" + payment +
+                '}';
     }
 }

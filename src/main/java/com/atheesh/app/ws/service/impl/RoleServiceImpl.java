@@ -22,8 +22,13 @@ import java.util.Optional;
 @Transactional(propagation= Propagation.REQUIRED)
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
+    private final
     RoleRepository roleRepository;
+
+    @Autowired
+    public RoleServiceImpl(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public RoleDTO getRoleById(Integer id) {

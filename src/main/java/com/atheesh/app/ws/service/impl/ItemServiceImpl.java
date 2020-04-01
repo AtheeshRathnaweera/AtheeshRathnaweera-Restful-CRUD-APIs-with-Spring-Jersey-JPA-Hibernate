@@ -1,9 +1,7 @@
 package com.atheesh.app.ws.service.impl;
 
 import com.atheesh.app.ws.entities.ItemEntity;
-import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.factory.DTOToEntityFactory;
-import com.atheesh.app.ws.factory.DTOToResponseFactory;
 import com.atheesh.app.ws.factory.EntityToDTOFactory;
 import com.atheesh.app.ws.repositories.ItemRepository;
 import com.atheesh.app.ws.service.ItemService;
@@ -23,8 +21,13 @@ import java.util.Optional;
 @Transactional(propagation= Propagation.REQUIRED)
 public class ItemServiceImpl implements ItemService {
 
-    @Autowired
+    private final
     ItemRepository itemRepository;
+
+    @Autowired
+    public ItemServiceImpl(ItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
+    }
 
     @Override
     public ItemDTO getItemById(Integer id) {

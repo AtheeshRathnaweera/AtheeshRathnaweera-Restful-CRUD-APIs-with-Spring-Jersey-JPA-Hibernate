@@ -6,7 +6,6 @@ import com.atheesh.app.ws.entities.ShopEntity;
 import com.atheesh.app.ws.entities.UserEntity;
 import com.atheesh.app.ws.factory.DTOToEntityFactory;
 import com.atheesh.app.ws.factory.EntityToDTOFactory;
-import com.atheesh.app.ws.repositories.CompanyRepository;
 import com.atheesh.app.ws.repositories.ShopRepository;
 import com.atheesh.app.ws.service.ShopService;
 import com.atheesh.app.ws.shared.dto.ShopDTO;
@@ -24,11 +23,13 @@ import java.util.Optional;
 @Transactional(propagation= Propagation.REQUIRED)
 public class ShopServiceImpl implements ShopService {
 
-    @Autowired
+    private final
     ShopRepository shopRepository;
 
     @Autowired
-    CompanyRepository companyRepository;
+    public ShopServiceImpl(ShopRepository shopRepository) {
+        this.shopRepository = shopRepository;
+    }
 
     @Override
     public ShopDTO getShopById(Integer id) {

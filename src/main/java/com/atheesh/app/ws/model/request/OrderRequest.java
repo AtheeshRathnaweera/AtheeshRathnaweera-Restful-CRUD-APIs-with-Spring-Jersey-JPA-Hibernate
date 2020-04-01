@@ -7,7 +7,7 @@ public class OrderRequest {
     private Integer storeId;
     private Integer userId;
     private Integer amount;
-    private Integer price;
+    private Float price;
     private OrderStatus status;
 
     public OrderRequest() {
@@ -37,11 +37,11 @@ public class OrderRequest {
         this.amount = amount;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

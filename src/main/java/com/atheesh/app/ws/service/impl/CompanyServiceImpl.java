@@ -17,15 +17,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
-
-
 @Service("companyService")
 @Transactional(propagation= Propagation.REQUIRED)
 public class CompanyServiceImpl implements CompanyService {
 
-    @Autowired
+    private final
     CompanyRepository companyRepository;
+
+    @Autowired
+    public CompanyServiceImpl(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     @Override
     public List<CompanyDTO> getAllCompanies() {

@@ -11,7 +11,7 @@ public class OrderDTO {
     private StoreDTO store;
     private UserDTO user;
     private Integer amount;
-    private Integer price;
+    private Float price;
     private OrderStatus status;
     private Date createdDate;
     private Date updatedDate;
@@ -55,11 +55,11 @@ public class OrderDTO {
         this.amount = amount;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

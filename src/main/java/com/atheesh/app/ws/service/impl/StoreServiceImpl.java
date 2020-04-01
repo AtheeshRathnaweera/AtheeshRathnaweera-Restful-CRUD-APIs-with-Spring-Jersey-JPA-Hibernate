@@ -22,8 +22,13 @@ import java.util.Optional;
 @Transactional(propagation= Propagation.REQUIRED)
 public class StoreServiceImpl implements StoreService {
 
-    @Autowired
+    private final
     StoreRepository storeRepository;
+
+    @Autowired
+    public StoreServiceImpl(StoreRepository storeRepository) {
+        this.storeRepository = storeRepository;
+    }
 
     @Override
     public List<StoreDTO> getAllStores() {
