@@ -19,8 +19,13 @@ import java.util.List;
 @Path("company")
 public class CompanyEntryPoint {
 
-    @Autowired
+    private final
     CompanyService companyService;
+
+    @Autowired
+    public CompanyEntryPoint(CompanyService companyService) {
+        this.companyService = companyService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON })

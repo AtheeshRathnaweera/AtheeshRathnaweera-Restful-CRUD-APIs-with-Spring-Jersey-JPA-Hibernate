@@ -7,7 +7,6 @@ import com.atheesh.app.ws.model.request.OrderRequest;
 import com.atheesh.app.ws.model.response.OrderResponse;
 import com.atheesh.app.ws.service.OrderService;
 import com.atheesh.app.ws.shared.dto.OrderDTO;
-import com.atheesh.app.ws.shared.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +19,13 @@ import java.util.List;
 @Path("orders")
 public class OrderEntryPoint {
 
-    @Autowired
+    private final
     OrderService orderService;
+
+    @Autowired
+    public OrderEntryPoint(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )

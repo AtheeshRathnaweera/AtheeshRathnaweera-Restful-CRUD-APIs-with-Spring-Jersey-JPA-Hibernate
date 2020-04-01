@@ -19,8 +19,13 @@ import java.util.List;
 @Path("shop")
 public class ShopEntryPoint {
 
-    @Autowired
+    private final
     ShopService shopService;
+
+    @Autowired
+    public ShopEntryPoint(ShopService shopService) {
+        this.shopService = shopService;
+    }
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})

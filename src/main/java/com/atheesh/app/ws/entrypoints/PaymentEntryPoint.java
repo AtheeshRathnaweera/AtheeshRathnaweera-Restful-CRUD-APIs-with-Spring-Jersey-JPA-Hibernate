@@ -5,7 +5,6 @@ import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.PaymentRequest;
 import com.atheesh.app.ws.model.response.PaymentResponse;
 import com.atheesh.app.ws.service.PaymentService;
-import com.atheesh.app.ws.shared.dto.OrderDTO;
 import com.atheesh.app.ws.shared.dto.PaymentDTO;
 import com.atheesh.app.ws.shared.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,13 @@ import java.util.List;
 @Path("payment")
 public class PaymentEntryPoint {
 
-    @Autowired
+    private final
     PaymentService paymentService;
+
+    @Autowired
+    public PaymentEntryPoint(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})

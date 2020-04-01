@@ -4,8 +4,6 @@ package com.atheesh.app.ws.entrypoints;
 import com.atheesh.app.ws.factory.DTOToResponseFactory;
 import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.UserRoleRequest;
-import com.atheesh.app.ws.model.response.RoleResponse;
-import com.atheesh.app.ws.model.response.UserResponse;
 import com.atheesh.app.ws.model.response.UserRoleResponse;
 import com.atheesh.app.ws.service.UserRoleService;
 import com.atheesh.app.ws.shared.dto.UserRoleDTO;
@@ -21,8 +19,13 @@ import java.util.List;
 @Path("userroles")
 public class UserRoleEntryPoint {
 
-    @Autowired
+    private final
     UserRoleService userRoleService;
+
+    @Autowired
+    public UserRoleEntryPoint(UserRoleService userRoleService) {
+        this.userRoleService = userRoleService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )

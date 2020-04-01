@@ -20,8 +20,13 @@ import java.util.List;
 @Path("users")
 public class UsersEntryPoint {
 
-    @Autowired
+    private final
     UserService userService;
+
+    @Autowired
+    public UsersEntryPoint(UserService userService) {
+        this.userService = userService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )

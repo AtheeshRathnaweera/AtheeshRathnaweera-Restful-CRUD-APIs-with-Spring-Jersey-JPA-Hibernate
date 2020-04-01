@@ -19,8 +19,13 @@ import java.util.List;
 @Path("store")
 public class StoreEntryPoint {
 
-    @Autowired
+    private final
     StoreService storeService;
+
+    @Autowired
+    public StoreEntryPoint(StoreService storeService) {
+        this.storeService = storeService;
+    }
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})

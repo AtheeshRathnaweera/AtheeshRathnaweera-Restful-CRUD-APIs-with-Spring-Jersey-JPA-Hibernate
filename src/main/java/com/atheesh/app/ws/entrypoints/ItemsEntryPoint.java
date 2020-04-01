@@ -15,14 +15,17 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
-
 @Component
 @Path("items")
 public class ItemsEntryPoint {
 
-    @Autowired
+    private final
     ItemService itemService;
+
+    @Autowired
+    public ItemsEntryPoint(ItemService itemService) {
+        this.itemService = itemService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )

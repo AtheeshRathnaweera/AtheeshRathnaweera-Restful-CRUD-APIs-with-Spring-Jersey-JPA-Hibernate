@@ -1,7 +1,5 @@
 package com.atheesh.app.ws.entrypoints;
 
-
-import com.atheesh.app.ws.factory.ConversionFactory;
 import com.atheesh.app.ws.factory.DTOToResponseFactory;
 import com.atheesh.app.ws.factory.RequestToDTOFactory;
 import com.atheesh.app.ws.model.request.RoleRequest;
@@ -21,8 +19,13 @@ import java.util.List;
 @Path("roles")
 public class RolesEntryPoint {
 
-    @Autowired
+    private final
     RoleService roleService;
+
+    @Autowired
+    public RolesEntryPoint(RoleService roleService) {
+        this.roleService = roleService;
+    }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON} )
