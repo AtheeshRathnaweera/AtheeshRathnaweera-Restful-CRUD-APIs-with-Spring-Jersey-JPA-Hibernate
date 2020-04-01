@@ -9,19 +9,25 @@ public class StoreDTO {
     private ShopDTO shop;
     private Integer amount;
     private Integer minLimit;
-    private Integer currentPrice;
+    private Integer unitQuantity;
+    private String unitSymbol;
+    private Integer unitPrice;
+    private String priceSymbol;
     private Status status;
 
     public StoreDTO() {
     }
 
-    public StoreDTO(Integer id, ItemDTO item, ShopDTO shop, Integer amount, Integer minLimit, Integer currentPrice, Status status) {
+    public StoreDTO(Integer id, ItemDTO item, ShopDTO shop, Integer amount, Integer minLimit, Integer unitQuantity, String unitSymbol, Integer unitPrice, String priceSymbol, Status status) {
         this.id = id;
         this.item = item;
         this.shop = shop;
         this.amount = amount;
         this.minLimit = minLimit;
-        this.currentPrice = currentPrice;
+        this.unitQuantity = unitQuantity;
+        this.unitSymbol = unitSymbol;
+        this.unitPrice = unitPrice;
+        this.priceSymbol = priceSymbol;
         this.status = status;
     }
 
@@ -69,20 +75,44 @@ public class StoreDTO {
         this.minLimit = minLimit;
     }
 
-    public Integer getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(Integer currentPrice) {
-        this.currentPrice = currentPrice;
-    }
-
     public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Integer getUnitQuantity() {
+        return unitQuantity;
+    }
+
+    public void setUnitQuantity(Integer unitQuantity) {
+        this.unitQuantity = unitQuantity;
+    }
+
+    public String getUnitSymbol() {
+        return unitSymbol;
+    }
+
+    public void setUnitSymbol(String unitSymbol) {
+        this.unitSymbol = unitSymbol;
+    }
+
+    public Integer getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Integer unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public String getPriceSymbol() {
+        return priceSymbol;
+    }
+
+    public void setPriceSymbol(String priceSymbol) {
+        this.priceSymbol = priceSymbol;
     }
 
     @Override
@@ -93,7 +123,10 @@ public class StoreDTO {
                 ", shop=" + shop +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
-                ", currentPrice=" + currentPrice +
+                ", unitQuantity=" + unitQuantity +
+                ", unitSymbol=" + unitSymbol +
+                ", unitPrice=" + unitPrice +
+                ", priceSymbol='" + priceSymbol + '\'' +
                 ", status=" + status +
                 '}';
     }

@@ -15,14 +15,15 @@ import java.util.List;
 
 public interface StoreRepository extends JpaRepository<StoreEntity, Integer> {
 
-    List<StoreEntity> findStoreEntitiesByStatus(Status status);
-    List<StoreEntity> findStoreEntitiesByShop(ShopEntity shopEntity);
-    List<StoreEntity> findStoreEntitiesByItem(ItemEntity itemEntity);
+    List<StoreEntity> findAllByStatus(Status status);
+    List<StoreEntity> findAllByShop_Id(Integer shopId);
+    List<StoreEntity> findAllByItem_Id(Integer itemId);
 
     @Modifying(clearAutomatically = true)
     @Transactional
     @Query("update StoreEntity storeEntity set storeEntity.item=:newItem,storeEntity.shop=:newShop," +
-            "storeEntity.amount=:newAmount,storeEntity.minLimit=:newLimit,storeEntity.currentPrice=:newPrice,storeEntity.status=:newStatus where storeEntity.id =:id")
+            "storeEntity.amount=:newAmount,storeEntity.minLimit=:newLimit,storeEntity.unitQuantity=:unitQuantity,storeEntity.unitSymbol=:unitSymbol,storeEntity.unitPrice=:newPrice,storeEntity.priceSymbol=:priceSymbol,storeEntity.status=:newStatus where storeEntity.id =:id")
     int updateTheStoreById(@Param("id") Integer id, @Param("newItem") ItemEntity newItem, @Param("newShop") ShopEntity newShop,
-                          @Param("newAmount") Integer newAmount, @Param("newLimit") Integer newLimit,@Param("newPrice") Integer newPrice,@Param("newStatus") Status newStatus);
+                          @Param("newAmount") Integer newAmount, @Param("newLimit") Integer newLimit,@Param("unitQuantity") Integer unitQuantity,
+                          @Param("unitSymbol") String unitSymbol,@Param("newPrice") Integer newPrice,@Param("priceSymbol") String priceSymbol,@Param("newStatus") Status newStatus);
 }

@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getUsersByStatus(UserStatus status) {
-        List<UserEntity> userEntities = userRepository.getUserEntitiesByStatusEquals(status);
+        List<UserEntity> userEntities = userRepository.getAllByStatus(status);
         List<UserDTO> userDTOList = new ArrayList<>();
 
         for(UserEntity userEntity : userEntities){

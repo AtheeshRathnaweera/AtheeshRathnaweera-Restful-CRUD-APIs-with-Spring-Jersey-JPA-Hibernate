@@ -10,7 +10,7 @@ import java.util.Date;
 public class PaymentDTO {
 
     private Integer id;
-    private OrderResponse order;
+    private OrderDTO order;
     private PaymentMethod method;
     private CardType cardType;
     private String cardNo;
@@ -20,6 +20,8 @@ public class PaymentDTO {
     public PaymentDTO() {
     }
 
+
+
     public Integer getId() {
         return id;
     }
@@ -28,11 +30,11 @@ public class PaymentDTO {
         this.id = id;
     }
 
-    public OrderResponse getOrder() {
+    public OrderDTO getOrder() {
         return order;
     }
 
-    public void setOrder(OrderResponse order) {
+    public void setOrder(OrderDTO order) {
         this.order = order;
     }
 

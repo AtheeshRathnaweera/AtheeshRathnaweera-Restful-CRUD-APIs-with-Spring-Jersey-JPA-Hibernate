@@ -1,13 +1,12 @@
 package com.atheesh.app.ws.model.request;
 
-import com.atheesh.app.ws.entities.OrderEntity;
 import com.atheesh.app.ws.shared.enums.CardType;
 import com.atheesh.app.ws.shared.enums.PaymentMethod;
 import com.atheesh.app.ws.shared.enums.PaymentStatus;
 
 public class PaymentRequest {
 
-    private OrderEntity order;
+    private Integer orderId;
     private PaymentMethod method;
     private CardType cardType;
     private String cardNo;
@@ -16,12 +15,12 @@ public class PaymentRequest {
     public PaymentRequest() {
     }
 
-    public OrderEntity getOrder() {
-        return order;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(OrderEntity order) {
-        this.order = order;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     public PaymentMethod getMethod() {
@@ -59,7 +58,7 @@ public class PaymentRequest {
     @Override
     public String toString() {
         return "PaymentRequest{" +
-                "order=" + order +
+                "orderId=" + orderId +
                 ", method=" + method +
                 ", cardType=" + cardType +
                 ", cardNo='" + cardNo + '\'' +

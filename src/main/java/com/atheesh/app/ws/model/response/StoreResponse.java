@@ -9,10 +9,17 @@ public class StoreResponse {
     private ShopResponse shop;
     private Integer amount;
     private Integer minLimit;
-    private Integer currentPrice;
+    private Integer unitQuantity;
+    private String unitSymbol;
+    private Integer unitPrice;
+    private String priceSymbol;
     private Status status;
 
     public StoreResponse() {
+    }
+
+    public StoreResponse(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -55,12 +62,36 @@ public class StoreResponse {
         this.minLimit = minLimit;
     }
 
-    public Integer getCurrentPrice() {
-        return currentPrice;
+    public Integer getUnitQuantity() {
+        return unitQuantity;
     }
 
-    public void setCurrentPrice(Integer currentPrice) {
-        this.currentPrice = currentPrice;
+    public void setUnitQuantity(Integer unitQuantity) {
+        this.unitQuantity = unitQuantity;
+    }
+
+    public String getUnitSymbol() {
+        return unitSymbol;
+    }
+
+    public void setUnitSymbol(String unitSymbol) {
+        this.unitSymbol = unitSymbol;
+    }
+
+    public Integer getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Integer unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public String getPriceSymbol() {
+        return priceSymbol;
+    }
+
+    public void setPriceSymbol(String priceSymbol) {
+        this.priceSymbol = priceSymbol;
     }
 
     public Status getStatus() {
@@ -79,7 +110,10 @@ public class StoreResponse {
                 ", shop=" + shop +
                 ", amount=" + amount +
                 ", minLimit=" + minLimit +
-                ", currentPrice=" + currentPrice +
+                ", unitQuantity=" + unitQuantity +
+                ", unitSymbol='" + unitSymbol + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", priceSymbol='" + priceSymbol + '\'' +
                 ", status=" + status +
                 '}';
     }

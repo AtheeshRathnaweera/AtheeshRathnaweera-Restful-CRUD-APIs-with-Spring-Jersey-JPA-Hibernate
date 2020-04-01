@@ -19,6 +19,10 @@ public class PaymentResponse {
     public PaymentResponse() {
     }
 
+    public PaymentResponse(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

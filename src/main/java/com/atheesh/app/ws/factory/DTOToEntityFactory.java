@@ -2,6 +2,7 @@ package com.atheesh.app.ws.factory;
 
 import com.atheesh.app.ws.entities.*;
 import com.atheesh.app.ws.shared.dto.*;
+import org.glassfish.jersey.message.internal.StringHeaderProvider;
 
 import javax.jws.soap.SOAPBinding;
 
@@ -50,5 +51,26 @@ public class DTOToEntityFactory {
         convertedStore.setShop(shop(storeDTO.getShop()));
 
         return convertedStore;
+    }
+
+    public static OrderEntity order(OrderDTO orderDTO){
+        OrderEntity orderEntity = (OrderEntity) ConversionFactory.conversion(orderDTO,new OrderEntity());
+
+        StoreEntity storeEntity = (StoreEntity) ConversionFactory.conversion(orderDTO.getStore(),new StoreEntity());
+        UserEntity userEntity = (UserEntity) ConversionFactory.conversion(orderDTO.getUser(),new UserEntity());
+
+        orderEntity.setStore(storeEntity);
+        orderEntity.setUser(userEntity);
+
+        return orderEntity;
+    }
+
+    public static PaymentEntity payment(PaymentDTO paymentDTO){
+        PaymentEntity paymentEntity = (PaymentEntity) ConversionFactory.conversion(paymentDTO,new PaymentEntity());
+
+        paymentEntity.setOrder(order(paymentDTO.getOrder()));
+
+        return paymentEntity;
+
     }
 }

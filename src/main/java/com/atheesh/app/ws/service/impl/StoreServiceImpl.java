@@ -38,10 +38,8 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<StoreDTO> getStoresByShop(Integer shopId) {
-        ShopEntity shopEntity = new ShopEntity();
-        shopEntity.setId(shopId);
 
-        List<StoreEntity> storeEntityList = storeRepository.findStoreEntitiesByShop(shopEntity);
+        List<StoreEntity> storeEntityList = storeRepository.findAllByShop_Id(shopId);
         List<StoreDTO> storeDTOList = new ArrayList<>();
 
         for(StoreEntity storeEntity : storeEntityList){
@@ -52,7 +50,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<StoreDTO> getStoresByStatus(Status status) {
-        List<StoreEntity> storeEntityList = storeRepository.findStoreEntitiesByStatus(status);
+        List<StoreEntity> storeEntityList = storeRepository.findAllByStatus(status);
         List<StoreDTO> storeDTOList = new ArrayList<>();
 
         for(StoreEntity storeEntity : storeEntityList){
@@ -63,10 +61,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<StoreDTO> getStoresByItem(Integer itemId) {
-        ItemEntity itemEntity = new ItemEntity();
-        itemEntity.setId(itemId);
-
-        List<StoreEntity> storeEntityList = storeRepository.findStoreEntitiesByItem(itemEntity);
+        List<StoreEntity> storeEntityList = storeRepository.findAllByItem_Id(itemId);
         List<StoreDTO> storeDTOList = new ArrayList<>();
 
         for(StoreEntity storeEntity : storeEntityList){
@@ -95,7 +90,9 @@ public class StoreServiceImpl implements StoreService {
     public boolean update(Integer id, StoreDTO newStoreDTO) {
         ItemEntity newItem = DTOToEntityFactory.item(newStoreDTO.getItem());
         ShopEntity newShop = DTOToEntityFactory.shop(newStoreDTO.getShop());
-        int affectedRows = storeRepository.updateTheStoreById(id,newItem,newShop,newStoreDTO.getAmount(),newStoreDTO.getMinLimit(),newStoreDTO.getCurrentPrice(),newStoreDTO.getStatus());
+        int affectedRows = storeRepository.updateTheStoreById(id,newItem,newShop,newStoreDTO.getAmount(),
+                newStoreDTO.getMinLimit(),newStoreDTO.getUnitQuantity(),newStoreDTO.getUnitSymbol(),
+                newStoreDTO.getUnitPrice(),newStoreDTO.getPriceSymbol(),newStoreDTO.getStatus());
 
         return affectedRows > 0;
     }

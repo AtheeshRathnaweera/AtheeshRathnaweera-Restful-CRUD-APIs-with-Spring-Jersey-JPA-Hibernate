@@ -23,5 +23,5 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
                           @Param("status") UserStatus status);
 
 
-    List<UserEntity> getUserEntitiesByStatusEquals(UserStatus status);
+    List<UserEntity> getAllByStatus(UserStatus status);
 }

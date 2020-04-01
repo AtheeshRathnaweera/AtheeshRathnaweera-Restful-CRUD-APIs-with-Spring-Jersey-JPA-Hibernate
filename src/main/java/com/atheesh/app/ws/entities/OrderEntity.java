@@ -6,6 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Entity
+@Table(name="orders")
 public class OrderEntity {
 
     @Id
@@ -27,11 +29,6 @@ public class OrderEntity {
 
     @NotNull
     private Integer price;
-
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="payment_id")
-    private PaymentEntity payment;
 
     @NotNull
     private OrderStatus status;
@@ -85,14 +82,6 @@ public class OrderEntity {
         this.price = price;
     }
 
-    public PaymentEntity getPayment() {
-        return payment;
-    }
-
-    public void setPayment(PaymentEntity payment) {
-        this.payment = payment;
-    }
-
     public OrderStatus getStatus() {
         return status;
     }
@@ -125,7 +114,6 @@ public class OrderEntity {
                 ", user=" + user +
                 ", amount=" + amount +
                 ", price=" + price +
-                ", paymentEntity=" + payment +
                 ", status=" + status +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +

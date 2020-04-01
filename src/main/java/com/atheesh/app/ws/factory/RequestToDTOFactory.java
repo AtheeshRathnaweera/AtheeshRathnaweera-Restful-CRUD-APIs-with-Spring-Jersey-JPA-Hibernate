@@ -1,6 +1,7 @@
 package com.atheesh.app.ws.factory;
 
 import com.atheesh.app.ws.model.request.*;
+import com.atheesh.app.ws.model.response.OrderResponse;
 import com.atheesh.app.ws.shared.dto.*;
 
 import static com.atheesh.app.ws.factory.ConversionFactory.conversion;
@@ -46,6 +47,30 @@ public class RequestToDTOFactory {
         ShopDTO shopDTO = new ShopDTO(storeRequest.getShopId());
         ItemDTO itemDTO = new ItemDTO(storeRequest.getItemId());
 
-        return new StoreDTO(null,itemDTO,shopDTO,storeRequest.getAmount(),storeRequest.getMinLimit(),storeRequest.getStatus());
+        return new StoreDTO(null,itemDTO,shopDTO,storeRequest.getAmount(),storeRequest.getMinLimit(),storeRequest.getUnitQuantity(),
+                storeRequest.getUnitSymbol(),storeRequest.getUnitPrice(),storeRequest.getPriceSymbol()
+                ,storeRequest.getStatus());
+    }
+
+
+    public static OrderDTO order(OrderRequest orderRequest){
+        StoreDTO storeDTO = new StoreDTO(orderRequest.getStoreId());
+        UserDTO userDTO = new UserDTO(orderRequest.getUserId());
+
+        OrderDTO orderDTO = (OrderDTO) ConversionFactory.conversion(orderRequest, new OrderDTO());
+        orderDTO.setStore(storeDTO);
+        orderDTO.setUser(userDTO);
+
+        return orderDTO;
+    }
+
+    public static PaymentDTO payment(PaymentRequest paymentRequest){
+        PaymentDTO paymentDTO = (PaymentDTO) ConversionFactory.conversion(paymentRequest,new PaymentDTO());
+
+        OrderDTO orderDTO = new OrderDTO(paymentRequest.getOrderId());
+        paymentDTO.setOrder(orderDTO);
+
+        return paymentDTO;
+
     }
 }

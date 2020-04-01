@@ -8,7 +8,6 @@ public class OrderRequest {
     private Integer userId;
     private Integer amount;
     private Integer price;
-    private PaymentRequest payment;
     private OrderStatus status;
 
     public OrderRequest() {
@@ -46,14 +45,6 @@ public class OrderRequest {
         this.price = price;
     }
 
-    public PaymentRequest getPayment() {
-        return payment;
-    }
-
-    public void setPayment(PaymentRequest payment) {
-        this.payment = payment;
-    }
-
     public OrderStatus getStatus() {
         return status;
     }
@@ -69,7 +60,6 @@ public class OrderRequest {
                 ", userId=" + userId +
                 ", amount=" + amount +
                 ", price=" + price +
-                ", payment=" + payment +
                 ", status=" + status +
                 '}';
     }

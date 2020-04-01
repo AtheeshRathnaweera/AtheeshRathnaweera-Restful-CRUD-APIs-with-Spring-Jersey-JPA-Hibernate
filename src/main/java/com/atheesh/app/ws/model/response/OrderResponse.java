@@ -11,12 +11,15 @@ public class OrderResponse {
     private UserResponse user;
     private Integer amount;
     private Integer price;
-    private PaymentResponse payment;
     private OrderStatus status;
     private Date createdDate;
     private Date updatedDate;
 
     public OrderResponse() {
+    }
+
+    public OrderResponse(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
@@ -59,14 +62,6 @@ public class OrderResponse {
         this.price = price;
     }
 
-    public PaymentResponse getPayment() {
-        return payment;
-    }
-
-    public void setPayment(PaymentResponse payment) {
-        this.payment = payment;
-    }
-
     public OrderStatus getStatus() {
         return status;
     }
@@ -99,7 +94,6 @@ public class OrderResponse {
                 ", user=" + user +
                 ", amount=" + amount +
                 ", price=" + price +
-                ", payment=" + payment +
                 ", status=" + status +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +

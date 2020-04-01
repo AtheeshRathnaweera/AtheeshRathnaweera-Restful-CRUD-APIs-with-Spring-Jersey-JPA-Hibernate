@@ -51,4 +51,30 @@ public class EntityToDTOFactory {
         return storeDTO;
     }
 
+    public static OrderDTO order(OrderEntity orderEntity){
+        OrderDTO orderDTO = (OrderDTO) ConversionFactory.conversion(orderEntity,new OrderDTO());
+
+        if(orderEntity.getStore().getItem() != null || orderEntity.getStore().getShop() != null) {
+            orderDTO.setStore(store(orderEntity.getStore()));
+        }else{
+            orderDTO.setStore(new StoreDTO(orderEntity.getStore().getId()));
+        }
+
+        orderDTO.setUser(user(orderEntity.getUser()));
+        return orderDTO;
+
+    }
+
+    public static PaymentDTO payment(PaymentEntity paymentEntity){
+        PaymentDTO paymentDTO = (PaymentDTO) ConversionFactory.conversion(paymentEntity,new PaymentDTO());
+
+        if(paymentEntity.getOrder().getStore() != null){
+            paymentDTO.setOrder(order(paymentEntity.getOrder()));
+        }else{
+            paymentDTO.setOrder(new OrderDTO(paymentEntity.getOrder().getId()));
+        }
+
+        return paymentDTO;
+    }
+
 }
